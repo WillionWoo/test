@@ -1,0 +1,92 @@
+{%- capture icon_class -%}icon icon--{{ air-icon }} {% if inline %}icon--inline{% endif %} {% if direction_aware %}icon--direction-aware{% endif %} {{ class }}{%- endcapture -%}
+
+{%- case air-icon -%}
+    {%- comment -%} UI {%- endcomment -%}
+  
+  {%- when 'feature-1' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76" fill="none">
+      <path d="M0 38C0 17.0132 17.0132 0 38 0C58.9868 0 76 17.0132 76 38C76 58.9868 58.9868 76 38 76C17.0132 76 0 58.9868 0 38Z" fill="white" fill-opacity="0.2"/>
+      <path d="M57 41.25C57 51 49 51 38 51C27 51 19 51 19 41.25C19 32 27 24 38 24C49 24 57 32 57 41.25Z" stroke="white" stroke-width="3"/>
+      <path d="M19.5048 40.4717C19.5048 40.4717 20.1075 41.9509 22.9453 42.6472C25.783 43.3435 30.6927 44.171 38.0012 44.171C44.8226 44.171 49.8094 43.3435 52.7984 42.6472C55.7874 41.9509 56.4977 40.4717 56.4977 40.4717" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M34 44V40.9019C34 38.7568 35.8009 37 38 37C40.1991 37 42 38.7568 42 40.9019V44" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  
+  {%- when 'feature-2' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76" fill="none">
+      <path d="M0 38C0 17.0132 17.0132 0 38 0C58.9868 0 76 17.0132 76 38C76 58.9868 58.9868 76 38 76C17.0132 76 0 58.9868 0 38Z" fill="white" fill-opacity="0.2"/>
+      <path d="M55.5 29C55.5 27.6193 54.3807 26.5 53 26.5H30C28.6193 26.5 27.5 27.6193 27.5 29V47C27.5 48.3807 28.6193 49.5 30 49.5H53C54.3807 49.5 55.5 48.3807 55.5 47V29Z" stroke="white" stroke-width="3"/>
+      <path d="M50 27V49.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M27.5 43.5V32.5H22C21.7239 32.5 21.5 32.7239 21.5 33V43C21.5 43.2761 21.7239 43.5 22 43.5H27.5Z" stroke="white" stroke-width="3"/>
+      <path d="M20.5 38H15" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+  {%- when 'feature-3' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76" fill="none">
+      <path d="M0 38C0 17.0132 17.0132 0 38 0C58.9868 0 76 17.0132 76 38C76 58.9868 58.9868 76 38 76C17.0132 76 0 58.9868 0 38Z" fill="white" fill-opacity="0.2"/>
+      <path d="M30 18C30 18 30.5 21 34 25C37.5 29 44 29 46 37.5C47.3292 43.149 44.5 48.1 40.5 50.5C38 52 28.5 55 20.3711 46.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45.5 52.5C49.5 49 51.5 44 51 38.5C50.6364 34.5 48.5127 30.2405 46 28" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M51.1891 39L54.5891 39.1238C56.0228 39.176 57.1428 40.3806 57.0906 41.8144V41.8144C57.0384 43.2481 55.8338 44.3681 54.4 44.3158L51 44.192" stroke="white" stroke-width="3"/>
+      <path d="M32.9997 53C32.3333 54.3333 31.4995 57.5 31.4995 59.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+  {%- when 'function-1' -%}
+    <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="38" cy="38" r="38" fill="none"/>
+      <path d="M24.5432 51.458V26.681C24.5432 25.6585 25.8963 25.2951 26.4086 26.1799L38.0718 46.3244L49.5922 26.2177C50.1017 25.3284 51.4599 25.69 51.4599 26.7148V51.458" stroke="currentColor" stroke-width="3.78947" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+      
+  
+  {%- when 'function-2' -%}
+    <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="38" cy="38" r="38" fill="none"/>
+      <path d="M24.6348 52.25L37.0885 25.7858C37.47 24.9752 38.6231 24.9752 39.0046 25.7858L51.4583 52.25" stroke="currentColor" stroke-width="3.78947" stroke-linecap="round"/>
+      <path d="M29.2461 43.0303H46.4299" stroke="currentColor" stroke-width="3.78947" stroke-linecap="round"/>
+    </svg>
+      
+
+  {%- when 'function-3' -%}
+    <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="38" cy="38" r="38" fill="none"/>
+      <path d="M22.9584 48.1475H52.322" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32.4576 54.625H41.9576" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25.5496 47.7156V36.4884C25.5496 29.8107 30.9628 24.3975 37.6405 24.3975V24.3975C44.3181 24.3975 49.7314 29.8107 49.7314 36.4884V47.7156" stroke="currentColor" stroke-width="3.7" stroke-linejoin="round"/>
+      <path d="M39.4899 21.375C39.4899 20.3533 38.6616 19.525 37.6399 19.525C36.6182 19.525 35.7899 20.3533 35.7899 21.375H39.4899ZM35.7899 21.375V25.6932H39.4899V21.375H35.7899Z" fill="currentColor"/>
+    </svg>
+      
+
+  {%- when 'function-4' -%}
+    <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="38" cy="38" r="38" fill="none"/>
+      <path d="M45.1249 54.625H30.3471C27.5751 54.625 22.9577 50.4427 22.9583 40.283C22.9588 30.6703 28.9729 21.375 37.734 21.375C46.4951 21.375 52.5138 29.932 52.5138 40.283C52.5138 49.5191 47.8946 54.625 45.1249 54.625Z" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M24.7508 49.4821C25.6744 50.6675 28.7361 51.0227 30.0918 50.6224C32.1854 50.0043 33.9068 49.437 37.9431 49.437C41.9793 49.437 44.0703 50.0043 45.7932 50.6224C46.9088 51.0227 50.0609 50.7015 50.8228 49.0566" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28.4993 25.5312C28.4993 25.5312 32.1937 26.4549 37.7354 26.4549C43.277 26.4549 46.9715 25.5312 46.9715 25.5312" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45.1696 31.668C45.1696 31.668 45.595 32.4591 46.1499 33.9099C46.5237 34.8872 46.8458 36.6049 46.8458 36.6049" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      
+  
+  {%- when 'play' -%}
+    <svg
+      focusable="false"
+      width="100%" 
+      height="100%" 
+      viewBox="0 0 58 58" 
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="29" cy="29" r="29" fill="white"/>
+      <path d="M23.2248 21.9201C23.2248 20.2499 25.1 19.2665 26.474 20.2161L38.34 28.4176C39.5388 29.2462 39.5299 31.0208 38.3228 31.8374L26.4568 39.8643C25.0811 40.7949 23.2247 39.8094 23.2247 38.1486L23.2248 21.9201Z" fill="black"/>
+    </svg>
+
+  {%- when 'pause' -%}
+    <svg
+      focusable="false"
+      width="100%"
+      height="100%"
+      viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="20" cy="20" r="20" fill="#F3F3F4"/>
+      <rect x="21" y="11" width="6" height="18" rx="3" fill="#BEBEBE"/>
+      <rect x="12" y="11" width="6" height="18" rx="3" fill="#BEBEBE"/>
+    </svg>
+  
+{%- endcase -%}

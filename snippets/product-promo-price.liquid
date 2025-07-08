@@ -1,0 +1,123 @@
+{% if settings.site_discount_code != blank or product.metafields.meta.discount_code_special != blank or product.metafields.meta.discount_code_country != blank %}
+  {% liquid
+    assign country_disable = false
+    assign discounts_excluded = false
+    
+    if product.metafields.meta.country_limited == 'include'
+      if product.metafields.meta.limit_country_list.value contains localization.country.iso_code
+        assign country_disable = false
+      else
+        assign country_disable = true
+      endif
+    elsif product.metafields.meta.country_limited == 'exclude'
+      if product.metafields.meta.limit_country_list.value contains localization.country.iso_code
+        assign country_disable = true
+      else
+        assign country_disable = false
+      endif
+    endif
+
+    assign excluded_country = settings.site_discounts_excluded | split:',' | compact 
+    for check in excluded_country
+      if localization.country.iso_code == check
+  
+        assign discounts_excluded = true
+        break
+  
+      endif
+    endfor
+  %}
+  
+  {% if country_disable == false and discounts_excluded == false %}
+  
+    {%- liquid
+      assign discount_code = settings.site_discount_code
+       
+      if product.metafields.meta.discount_code_special != blank
+          assign discount_code = product.metafields.meta.discount_code_special
+      endif
+       
+      if product.metafields.meta.discount_code_country != blank
+        for value in product.metafields.meta.discount_code_country.value
+          assign country = value | split:';;;;' | compact 
+          if localization.country.iso_code == country[0]
+     
+            if country[1] != blank
+              assign discount_code = country[1]
+            else
+              assign discount_code = product.metafields.meta.discount_code_special
+            endif
+     
+            break
+     
+          endif
+        endfor
+      endif
+      
+    -%}
+    
+    {% if discount_code != blank %}
+    
+      {%- liquid
+         
+      if PR_no_pick or price_varies_style != '0'
+        assign price = product.price
+      else
+        assign price = 1999
+      endif
+      assign promotion_1 = 100 | minus:settings.site_promo_num | divided_by: 100.0
+      assign promo_price_site = price | times: promotion_1 | divided_by: 1
+      if product.metafields.meta.special_code_valueoff != blank
+        assign code_value = product.metafields.meta.special_code_valueoff | downcase | split: '--'
+        assign code_value_num = code_value[1] | times: 1
+        if code_value[0] == 'p'
+          assign promotion_2 = 100 | minus:code_value_num | divided_by: 100.0
+          assign promo_price_pr = price | times: promotion_2 | divided_by: 1
+        elsif code_value[0] == 'a'
+          assign promotion_2 = 100 | times:code_value_num
+          assign promo_price_pr = price | minus:promotion_2
+        endif
+      else
+        assign promotion_2 = 100 | minus:settings.pr_promo_num | divided_by: 100.0
+        assign promo_price_pr = price | times: promotion_2 | divided_by: 1
+      endif
+         
+      assign cur_code_enabled = settings.currency_code_enabled
+      
+      if cur_code_enabled
+          assign money_price = price | money_with_currency
+      else
+          assign money_price = price | money
+      endif
+      %}
+      
+      {% if money_price != blank %}
+      
+        <div class="w__promoPrice">
+          <span class="w__promoPriceTitle">
+            {% if settings.site_promo_title != blank %}
+              {{ settings.site_promo_title }}
+            {% else %}
+              {{ product.metafields.meta.discount_code_title }}
+            {% endif %}
+          </span>
+          <span class="w__promoPriceSubTitle">
+            {{ settings.site_promo_subtitle }}
+          </span>
+          <div class="w__promoOriginalPrice">
+            {{ price | money }}
+          </div>
+          <div class="w__promoFinalPrice">
+            {% if product.metafields.meta.discount_code_special != blank or product.metafields.meta.discount_code_country != blank %}
+              {{ promo_price_pr | money }}
+            {% else %}
+              {{ promo_price_site | money }}
+            {% endif %}
+          </div>
+        </div>
+        
+      {% endif %}
+      
+    {% endif %}
+  {% endif %}
+{% endif %}

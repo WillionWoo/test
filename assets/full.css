@@ -1,0 +1,65 @@
+.video-popup {
+  --tingle-padding: 0;
+}
+
+.cover-bg {
+  background-size: cover;
+  background-position: center;
+  background-image: var(--bg);
+  background-repeat: no-repeat;
+}
+
+.bg-repeat-y {
+  background-image: var(--bg);
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-color: var(--bg-color);
+}
+
+@media screen and (min-width: 768px) {
+  .video-popup {
+    --popup-max-width: 60%;
+  }
+}
+
+/* 当使用swiper的loop模式, swiper 会在动画初始化和动画执行之间加加一个hold属性, 导致动画不执行 */
+.swiper .swiper-slide motion-element[hold] {
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
+}
+/* .swiper line nav */
+.swiper.line-nav .swiper-pagination-bullet::before {
+  display: none;
+}
+.swiper.line-nav .swiper-pagination {
+  --swiper-pagination-mt: 0;
+  gap: 0.6em;
+}
+
+.swiper.line-nav .swiper-pagination-bullet {
+  transition: width 0.3s ease;
+}
+.swiper.line-nav .swiper-pagination-bullet:after {
+  width: 100%;
+  border-radius: 99px;
+}
+
+.swiper.line-nav .swiper-pagination-bullet-active {
+  --swiper-pagination-bullet-width: 4rem;
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #942846 0%, #ff779d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slideshow {
+  line-height: 1.22;
+}
+
+.flex-self-stretch {
+  align-self: stretch;
+}

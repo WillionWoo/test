@@ -1,0 +1,155 @@
+<style>
+ .lr-box-cont {
+      padding-top: 100px;
+     transform: translateY(20px);
+    opacity: 0;
+    transition: all .4s ease;
+  }
+
+  .lr-box-cont.appear{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  .lr-box-cont .lr-list {
+      display: flex;
+      background: #f8f3f0;
+  }
+
+  .lr-box-cont .lr-list .left-lr-item {
+      flex: 2;
+  }
+
+  .lr-box-cont .lr-list .left-lr-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .lr-box-cont .lr-list .right-lr-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-left: 10%;
+  }
+
+  .lr-box-cont .lr-list .right-lr-item .title-box {
+      color: #68513f;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      line-height: 1.2;
+  }
+  .lr-box-cont .lr-list .right-lr-item .title-box p{
+    margin: 0;
+  }
+
+  .lr-box-cont .lr-list .right-lr-item a {
+      text-decoration: none;
+  }
+
+  .lr-box-cont .lr-list .right-lr-item .btn-cont {
+      font-size: 14px;
+      font-weight: bold;
+      color: #fffaf6;
+      transition: all .4s ease;
+      width: 185px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      text-transform: uppercase;
+  }
+
+  .lr-box-cont .lr-list .right-lr-item .btn-cont:hover {
+      background: #fff;
+      color: #000;
+  }
+
+  @media screen and (max-width:1280px) {
+      .lr-box-cont .lr-list .right-lr-item .title-box {
+          font-size: 30px;
+      }
+
+  }
+
+  @media screen and (max-width:1060px) {
+      .lr-box-cont .lr-list .right-lr-item {
+          padding-left: 5%;
+      }
+
+  }
+
+  @media screen and (max-width:991px) {
+      .lr-box-cont .lr-list {
+          display: block;
+      }
+      .lr-box-cont .lr-list .right-lr-item {
+          padding: 40px 0;
+          padding-left: 30px;
+      }
+
+  }
+</style>
+<section class="customize-section">
+<div class="lr-box-cont activity-item-box">
+    <div class="container">
+        <div class="lr-list">
+            <div class="left-lr-item">
+                {%- if section.settings.customize_img -%}
+                  <a href="{{ section.settings.link }}" style="display:block;">
+                  <img loading="lazy" class="img" {% render 'image-attributes', image: section.settings.customize_img %}>
+                    </a>
+              {%- endif -%}
+            </div>
+            <div class="right-lr-item">
+                <div>
+                    <div class="title-box">{{ section.settings.text }}</div>
+                  {%- if section.settings.link -%}
+                    <a href="{{ section.settings.link }}" class="ins-item">
+                      {%- endif -%}
+                      <div class="btn-cont">
+                          Learn more >
+                      </div>
+                      {%- if section.settings.link -%}
+                    </a>
+                  {%- endif -%}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "customize1",
+  "class": "customize1-box",
+  "blocks": [],
+  "settings": [
+  {
+            "type": "image_picker",
+            "id": "customize_img",
+            "label": "Image"
+          },
+          {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+          ],
+  "presets": [
+    {
+      "name": "customize1",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

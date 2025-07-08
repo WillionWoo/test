@@ -1,0 +1,60 @@
+{%- liquid
+  assign poster = image | default: video_local.preview_image
+  assign video_id = video_url.id
+-%}
+
+{%- if video_local != blank -%}
+  {%- liquid
+    assign source = video_local.sources
+    assign source_url = ''
+    for s in source
+      if s.format == 'mp4'
+        assign source_url = s.url
+        break
+      endif
+    endfor
+  -%}
+  <video
+    class="rounded lazy-video-item {{ class }}"
+    playsinline="true"
+    {{ video_attr }}
+    data-poster="{{ poster | image_url: width: 1920 }}"
+    data-src="{{ source_url }}"
+  ></video>
+{%- elsif video_url != blank -%}
+  {%- if video_url.type == 'youtube' or video_url.type == 'vimeo' -%}
+    {%- if video_url.type == 'youtube' -%}
+      <div
+        class="video-foreground block lazy-video-link {{ class }}"
+        data-video-id="{{ video_id }}"
+        data-video-type="youtube"
+        data-controls="1"
+      >
+        {% render 'responsive-image',
+          image: poster,
+          image_alt: 'Youtube Thumbnail',
+          lazy_load: false,
+          no_animate: true,
+          class: 'h-full w-full object-fit-cover'
+        %}
+      </div>
+    {%- elsif video_url.type == 'vimeo' -%}
+      <div
+        class="video-foreground block lazy-video-link {{ class }}"
+        data-video-id="{{ video_id }}"
+        data-video-type="vimeo"
+        data-controls="1"
+      >
+        {% render 'responsive-image',
+          image: poster,
+          image_alt: 'Vimeo Thumbnail',
+          lazy_load: false,
+          no_animate: true,
+          class: 'h-full w-full object-fit-cover'
+        %}
+      </div>
+    {% endif %}
+  {% endif %}
+{%- else -%}
+  {%- render 'placeholder-render', class: 'rounded' -%}
+{% endif %}

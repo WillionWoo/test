@@ -1,0 +1,100 @@
+<style>
+  .w__prMergeWrap{margin:auto}
+  .w_prMerge__wrap{
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+  }
+  
+  .w_prMerge__title, .w_prMerge__info {display:none}
+  .w_prMerge__img .lz_op_ef{background-repeat: no-repeat;background-size: cover;background-position: center center}
+  .w__prMergeWrap~.nt_cart_form .swatch{margin-bottom: 15px}
+  .w_prMerge__wrap>.w_prMerge__item{
+    border: 0px solid var(--accent-color);
+    margin-bottom: 0;
+    border-radius: 4px;
+    max-width: 30px;
+    overflow: hidden;
+  }
+  .w_prMerge__img {
+    border-radius: 4px;
+  }
+  .w_prMerge__item:hover .w_prMerge__img {opacity: 1!important;transform: scale(1.09)}
+  .w_prMerge__wrap>.w_prMerge__item.is--chosen{border: 1px solid var(--color-heading);}
+  .product-detail__information .w_prMerge__wrap{
+    margin: 10px auto 15px;
+  }
+  .product-detail__information .w_prMerge__wrap>.w_prMerge__item{
+    max-width: 170px;
+    margin-bottom: 10px;
+  }
+  .product-detail__information .w_prMerge__title{
+    margin-top: 15px;
+    font-size:13px;
+    font-weight:400
+  }
+  .product-detail__information .w_prMerge__info{
+    color: var(--secondary-color);
+    font-size: 10px;
+    line-height: 1.3;
+    font-weight: 500;
+    padding: 5px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+</style>
+
+{% assign pr_merge_title = product_merge_title | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq %}
+
+<div class="w__prMergeWrap">
+    {%- capture product_merge_html -%}
+      {%- for pr in product_merge_source %}
+
+        {% comment %}
+        {% if pr.metafields.meta.country_limited == 'include' %}
+          {% if pr.metafields.meta.limit_country_list.value contains localization.country.iso_code %}
+            {% assign country_disable = false %}
+          {% else %}
+            {% assign country_disable = true %}
+          {% endif %}
+        {% endif %}
+
+        {% if pr.metafields.meta.country_limited == 'exclude' %}
+          {% if pr.metafields.meta.limit_country_list.value contains localization.country.iso_code %}
+            {% assign country_disable = true %}
+          {% else %}
+            {% assign country_disable = false %}
+          {% endif %}
+        {% endif %}
+
+        {% if country_disable == true %}
+          {% assign country_disable = false %}
+          {% continue %}
+        {% endif %}
+        {% endcomment %}
+
+        {% assign pr_imgs = pr.images -%}
+        {%- assign title_chosen_pr = pr_merge_title[forloop.index0] | default: pr.title -%}
+         <div class="w_prMerge__item skeleton-loading {% if pid == pr.id %}{%- assign title_chosen = 'Style: <strong>' | append: title_chosen_pr | append: '</strong>' %} is--chosen{% endif %}">
+            <a href="{{ pr.url }}" class="db no-underline" data-tooltip="top" title="{{ pr.title | escape }}">
+               {%- if pr_imgs.size > 0 %}
+                 {% assign image = pr_imgs[0] -%}
+                 <div class="w_prMerge__img pr oh">
+                    <img loading="lazy" class="w_prMerge__img-main" src="{{ image | image_url: width: 100 }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
+                 </div>
+               {%- endif -%}
+               <div class="w_prMerge__info">{{ title_chosen_pr | default: pr.title }}</div>      
+            </a>
+         </div>
+      {%- endfor -%}
+    {%- endcapture -%}
+    <div class="w_prMerge__title skeleton-loading">
+      <span class="w__title">{{ title | escape }}</span><span>{{ title_chosen }}</span>
+    </div>
+    <div class="w_prMerge__wrap flex gap-10">{{ product_merge_html }}</div>
+</div>

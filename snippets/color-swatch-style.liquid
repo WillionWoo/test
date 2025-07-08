@@ -1,0 +1,28 @@
+{%- comment -%}
+  Extract a style from the color swatch config. You must passed two parameters to this snippet:
+
+  - color_swatch_config: extracted from the theme settings
+  - value: the actual color
+{%- endcomment -%}
+
+{%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+
+{%- assign color_swatch_style = '.bg_color_black{--swatch-bg-color:#000000}' -%}
+
+<style>
+{%- for color_swatch_item in color_swatch_config -%}
+  {%- assign color_swatch_parts = color_swatch_item | split: ':' -%}
+  {%- assign color_swatch_name = color_swatch_parts.first | downcase | replace: ' ','-' | replace: '+','-' | replace: '+ ','-' | replace: '_','-' | strip -%}
+  {%- assign color_swatch_value = color_swatch_parts.last | strip -%}
+
+  {%- if color_swatch_value contains '#' -%}
+    {%- assign color_swatch_style = '.bg_color_' | append: color_swatch_name | append: '{--swatch-bg-color:' | append: color_swatch_value | append: ';background-image: unset !important;}' -%}
+  {%- elsif images[color_swatch_value] != blank -%}
+    {%- assign color_swatch_image = images[color_swatch_value] | image_url: width:72, height:72 -%}
+    {%- assign color_swatch_style = '.bg_color_' | append: color_swatch_name | append: '{ background-image: url(' | append: color_swatch_image | append: ') !important }' -%}
+  {%- endif -%}
+
+  {{ color_swatch_style }}
+
+{%- endfor -%}
+</style>

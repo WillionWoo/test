@@ -1,0 +1,9 @@
+{% if product.metafields.meta.collection_key_point != blank %}
+  {%- assign array_txt = product.metafields.meta.collection_key_point.value -%}
+  <div class="w__specialPromotion">
+    {% for txt in array_txt %}
+      <span class="">{{ txt }}</span>
+    {% endfor %}
+  </div>
+  
+{% endif %}

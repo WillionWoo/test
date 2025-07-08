@@ -1,0 +1,579 @@
+@media screen and (min-width: 1025px) {
+    /* 覆盖所有菜单项动画 - 确保所有菜单项都没有位移和过渡效果 */
+    /* 覆盖mega-menu中的项目 */
+    .mega-menu .subchildmenu > li.menu-link.level-1,
+    .mega-menu .col-mega .grid > * {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        transition-delay: 0s;
+    }
+    
+    /* 覆盖dropdown-menu中的项目 */
+    .dropdown-menu .subchildmenu > li.menu-link.level-1, 
+    .dropdown-menu.visible .subchildmenu > li.menu-link.level-1 {
+        --tw-translate-x: 0;
+        --transform-logical: 0;
+        opacity: 1;
+        transform: none;
+        transition: none;
+        transition-delay: 0s;
+    }
+    
+    /* 覆盖所有动画延迟 */
+    .dropdown-menu.visible .subchildmenu > li.menu-link.level-1:nth-child(n),
+    .mega-menu.visible .subchildmenu > li.menu-link:nth-child(n),
+    .mega-menu.visible .col-mega .grid > *:nth-child(n) {
+        transition-delay: 0s;
+    }
+    
+    /* 覆盖动画相关样式 */
+    .animation-fade-in :is(.submenu, .dropdown-menu .sub-children-menu) {
+        transform: none;
+        -webkit-transform: none;
+    }
+    
+    /* 优化标签固定高度设置 - 使用变量来保持一致性 */
+    .submenu .menu_label:not(.hidden-1025) {
+        --menu-label-height: 22px;
+        height: var(--menu-label-height);
+        line-height: var(--menu-label-height);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+    
+    /* 确保hidden-1025类能正常工作 */
+    .submenu .menu_label.hidden-1025 {
+        display: none;
+    }
+    
+    /* 一级菜单标签样式 - 优化选择器和属性组织 */
+    .horizontal-list > li.level0 > menu-item .menu_label {
+        --menu-label-height: 22px;
+        /* 字体与尺寸属性 */
+        font-size: 1.1rem;
+        font-weight: 600;
+        white-space: nowrap;
+        max-width: none;
+        
+        /* 位置相关属性 */
+        position: absolute;
+        right: -5.8px;
+        top: -7px;
+        z-index: 5;
+        transform: none;
+        
+        /* Flex布局属性（集中分组） */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+        /* 盒模型属性 */
+        padding: 0 10px;
+        box-sizing: border-box;
+        min-height: var(--menu-label-height);
+    }
+    
+    /* 一级菜单标签三角样式 - 属性分组更清晰 */
+    .horizontal-list > li.level0 > menu-item .menu_label:after {
+        content: '';
+        
+        /* 位置属性集中 */
+        position: absolute;
+        bottom: -3.5px;
+        right: 7px;
+        left: auto;
+        top: auto;
+        margin: 0;
+        
+        /* 转换属性集中 */
+        transform: none;
+        -webkit-transform: none;
+        
+        /* 三角形样式属性集中 */
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4px 4px 0 4px;
+        border-color: var(--menu-label-bg, #333) transparent transparent transparent;
+        border-right-color: transparent;
+        border-top-color: var(--menu-label-bg, #333);
+    }
+    
+    /* 确保菜单项本身的布局不受影响 */
+    .horizontal-list > li.level0 > menu-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* 为下拉菜单切换图标提供相对定位 */
+    .horizontal-list > li.level0 > menu-item open-children-toggle {
+        position: relative;
+        z-index: 4;
+    }
+    
+    /* 二级菜单标签专用样式 */
+    .subchildmenu > li.menu-link.level-1 .menu_label {
+        --menu-label-height: 20px;
+        font-size: 1rem;
+    }
+    
+    /* 三级菜单标签专用样式 */
+    .sub-children-menu .menu_label {
+        --menu-label-height: 20px;
+        font-size: 1rem;
+    }
+    
+    /* 针对没有三级菜单的特定情况 */
+    .mega-menu .submenu .subchildmenu.menu-list.no-third-level-menu {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* 针对二级菜单的父容器 */
+    .mega-menu .submenu .menu-title-wrapper + .subchildmenu.no-third-level-menu {
+        display: block;
+    }
+    
+    /* 优化菜单列表容器 - 高兼容性方案 */
+    .mega-menu .menu-list:only-child:not(.grid-cols) {
+        width: 100%;
+        flex: 1 0 100%;
+    }
+    
+    /* 确保只有当父容器中只有一个子元素时才应用样式 */
+    .flex-1025-row > .menu-list:only-child {
+        width: 100%;  /* 这里使用important是必要的，因为可能有内联样式 */
+        flex: 1 0 100%;
+    }
+    
+    /* 菜单卡片样式 - 整合重复的边距设置 */
+    .menu-card {
+        border: 0.5px solid #9d9d9d;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--color-text);
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        overflow: hidden;
+        margin: 15px 0;
+    }
+    
+    /* 菜单列内的卡片和按钮无边距 */
+    li.menu-link.level-1.menu-card-item .menu-card,
+    li.menu-link.level-2.menu-card-item .menu-card,
+    li.menu-link.level-1.menu-button-item .menu-button,
+    li.menu-link.level-2.menu-button-item .menu-button {
+        margin: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    
+    /* 菜单卡片hover效果 */
+    .menu-card:hover {
+        border-color: var(--color-primary, #000);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* 确保卡片和按钮包装器不添加额外的边距 */
+    .menu-card-wrapper,
+    .menu-button-wrapper {
+        width: fit-content;
+        margin-bottom: 0;
+        margin-top: 0;
+        max-width: 100%;
+    }
+    
+    /* 按钮样式 */
+    .menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        text-decoration: none;
+        margin: 15px 0;
+        white-space: nowrap; /* 防止文本换行 */
+    }
+    
+    /* 二级菜单（level-1）中的卡片和按钮 */
+    li.menu-link.level-1.menu-card-item,
+    li.menu-link.level-1.menu-button-item {
+        display: flex;
+        align-items: center;
+        margin-top: 0; 
+        margin-bottom: 5px; 
+    }
+    
+    /* 三级菜单（level-2）中的卡片和按钮 */
+    li.menu-link.level-2.menu-card-item,
+    li.menu-link.level-2.menu-button-item {
+        display: flex;
+        align-items: center;
+        padding-top: 5px; 
+        padding-bottom: 5px; 
+    }
+    
+    /* 确保所有菜单卡片位置宽高设置都生效 */
+    li.menu-card-item .menu-card,
+    li.menu-button-item .menu-button,
+    .menu-card-wrapper .menu-card,
+    .menu-button-wrapper .menu-button,
+    .menu-cards-buttons-container .menu-card,
+    .menu-cards-buttons-container .menu-button {
+        width: var(--card-width, auto);
+        height: var(--card-height, auto);
+        min-width: 0; /* 防止最小宽度限制 */
+        max-width: 100%; /* 防止溢出 */
+    }
+    
+    /* 确保卡片内容正确对齐 */
+    .menu-card-content {
+        flex: 1;
+        padding-right: 15px;
+        overflow: hidden; /* 防止内容溢出 */
+    }
+    
+    /* 卡片标题样式 - 增加断词和最大行数限制 */
+    .menu-card-title {
+        font-weight: var(--heading-weight, 500);
+        margin-bottom: 2px; /* 添加小的底部间距 */
+        line-height: 1.2; /* 添加较小的行高 */
+        word-break: break-word;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* 卡片描述样式 - 增加断词和最大行数限制 */
+    .menu-card-description {
+        font-size: 0.9em;
+        line-height: 1.3; /* 添加较小的行高 */
+        color: var(--color-text-light, #666);
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* =================== */
+    /* 菜单网格布局组件样式 */
+    /* =================== */
+    
+    /* 1. 网格容器基础布局 - 修改列宽单位为固定宽度而非自适应 */
+    .menu-grid-layout {
+        display: grid;
+        grid-template-columns: repeat(var(--col-number, 2), var(--grid-block-width));
+        grid-template-rows: repeat(var(--row-number, 2), var(--grid-block-height));
+        column-gap: var(--grid-column-gap, 20px) !important;
+        row-gap: var(--grid-row-gap, 20px) !important;
+    }
+    
+    /* 2. 网格项目基础样式 - 确保精确尺寸 */
+    .menu-grid-item {
+        width: var(--grid-block-width, 300px);
+        height: var(--grid-block-height, 360px);
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box; /* 确保边框和内边距不会增加宽高 */
+    }
+    
+    /* 3. 图片容器样式 - 保持图片高度控制，宽度适应网格 */
+    .menu-grid-image-wrapper {
+        width: 100%;
+        height: var(--grid-item-img-height, 240px);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .menu-grid-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .menu-grid-item:hover .menu-grid-image-wrapper img {
+        transform: scale(1.05);
+    }
+    
+    /* 4. 内容区域样式调整 - 确保标题与图片左侧对齐 */
+    .menu-grid-content {
+        flex: 1; /* 占据剩余空间 */
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-background, #fff);
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* 5. 文本样式设置 - 调整标题间距 */
+    .menu-grid-title {
+        font-weight: var(--heading-weight, 500);
+        color: var(--color-heading, #000);
+        word-break: break-word;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .menu-grid-subtitle {
+        font-size: 0.9em;
+        line-height: 1.1;
+        color: var(--color-text-light, #666);
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* 6. 解释栏样式 - 修正布局问题 */
+    /* 描述容器 */
+    .description-wrapper {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.4;
+        display: block;
+        width: 100%;
+        padding-top: 15px;
+    }
+    
+    /* 确保文本和图标在同一水平线上 */
+    .description-wrapper p {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+    }
+    
+    /* 调整图标链接垂直对齐 */
+    .description-icons-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        white-space: nowrap;
+        margin-left: 5px;
+        vertical-align: middle; /* 确保与文本垂直对齐 */
+    }
+    
+    /* 调整图标容器大小与对齐 */
+    .description-icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px; 
+        width: 45px;
+        flex-shrink: 0;
+    }
+    
+    /* 确保图标垂直居中 */
+    .description-icon-wrapper img {
+        max-height: 100%;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+    
+    /* 行内图标容器 */
+    .description-icons-inline {
+        display: inline-flex;
+        align-items: center;
+        font-size: inherit; /* 继承描述文本的字体大小 */
+        font-weight: inherit; /* 继承描述文本的字重 */
+        line-height: inherit; /* 继承描述文本的行高 */
+    }
+    
+    /* 描述栏箭头样式 */
+    .description-arrow {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        transform: translateX(0);
+        transition: transform 0.3s ease, stroke 0.3s ease;
+        padding-bottom: 2px;
+        margin-left: -4px;
+    }
+    
+    /* 悬停效果 */
+    .description-icons-link:hover .description-arrow {
+        transform: translateX(5px);
+        stroke: var(--color-primary, #337ab7);
+    }
+    
+    /* 按钮文本hover效果 */
+    .description-icons-link:hover .description-button-text {
+        color: var(--color-primary, #337ab7);
+        text-decoration: underline;
+    }
+        
+    /* 按钮文本样式 */
+    .description-button-text {
+        display: inline-block;
+        font-size: inherit; /* 继承父元素字体大小 */
+        font-weight: inherit; /* 继承父元素字重 */
+        vertical-align: middle;
+        transition: color 0.3s ease;
+    }
+    
+    /* Hover效果 - 整体 */
+    .description-icons-link {
+        color: var(--color-text);
+        transition: color 0.3s ease;
+    }
+    
+    .description-icons-link:hover {
+        color: var(--color-primary, #337ab7); /* 项目常用链接hover颜色 */
+    }
+    
+    /* 解决shopify富文本p标签问题 */
+    .description-wrapper > p,
+    .description-button-text > p {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 7. 链接样式 */
+    .menu-grid-link {
+        text-decoration: none; /* 禁用默认下划线 */
+        color: var(--color-text); /* 使用主题默认文本颜色 */
+    }
+    
+    .menu-grid-link:hover {
+        color: var(--color-text); /* 保持文本颜色不变 */
+        text-decoration: none; /* 确保悬停时也没有下划线 */
+        box-shadow: none;
+    }
+    
+    .menu-grid-link .menu-grid-title {
+        background: none; /* 禁用可能的背景下划线效果 */
+        transition: none;
+    }
+    
+    /* 8. 悬停效果 - 使用更精准的选择器 */
+    .mega-menu .col-mega .grid > *.hover-scale-effect,
+    .mega-menu.visible .col-mega .grid > *.hover-scale-effect {
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+    }
+    
+    .menu-grid-layout .hover-scale-effect:hover,
+    .menu-grid-item .hover-scale-effect:hover,
+    .menu-grid-link .hover-scale-effect:hover,
+    .mega-menu .hover-scale-effect:hover {
+        transform: scale(1.03);
+        z-index: 2;
+        transition-delay: 0s;
+    }
+
+    /* 确保所有网格项（包括第一个）有一致的hover动画行为 */
+    .navigation__menu-content .mega-menu.visible .col-mega .grid > *:first-child.hover-scale-effect,
+    .navigation__menu-content .mega-menu.visible .col-mega .grid > *:nth-child(2).hover-scale-effect,
+    .navigation__menu-content .mega-menu .col-mega .grid > *.hover-scale-effect {
+        opacity: 1;
+        transform: none;
+        transition: transform 0.3s ease;
+        transition-delay: 0s;
+    }
+    
+    /* 确保hover时的动画效果统一 */
+    .navigation__menu-content .mega-menu .col-mega .grid > *:first-child.hover-scale-effect:hover,
+    .navigation__menu-content .mega-menu .col-mega .grid > *:nth-child(n).hover-scale-effect:hover,
+    .navigation__menu-content .menu-grid-item.hover-scale-effect:hover {
+        transform: scale(1.03);
+        z-index: 2;
+        transition-delay: 0s;
+    }
+    
+    
+    /* 调整下拉菜单长度和滚动行为 */
+    .mega-menu .submenu {
+        max-height: 70vh; /* 将菜单高度从80vh减少到70vh */
+        overflow-y: auto;
+        overscroll-behavior: contain; /* 阻止滚动传播到页面 */
+    }
+    
+    /* 导航菜单滚动条样式美化 */
+    .mega-menu .submenu::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .mega-menu .submenu::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.03); 
+    }
+    
+    .mega-menu .submenu::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+    }
+    
+    .mega-menu .submenu::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.25);
+    }
+    
+    /* 当导航菜单展开时防止页面滚动 */
+    .mega-menu.visible {
+        overscroll-behavior: contain;
+    }
+    
+    /* 二级导航菜单渐隐渐显动画 - 提高特异性 */
+    .navigation.horizontal .navigation__menu-content .horizontal-list > li.level0 > .submenu,
+    .navigation.horizontal .navigation__menu-content .horizontal-list > li.level0.dropdown-menu .sub-children-menu {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease !important; 
+        pointer-events: none !important;
+        transform: none !important; /* 覆盖所有位移效果 */
+    }
+    
+    /* 鼠标悬停在菜单项上时显示子菜单 - 提高特异性 */
+    .navigation.horizontal .navigation__menu-content .horizontal-list .dropdown-menu .level-1:hover > .sub-children-menu,
+    .navigation.horizontal .navigation__menu-content .horizontal-list .menu-parent.visible > .submenu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+    
+    /* 三级菜单圆角样式 - 四个角都为圆角 */
+    .dropdown-menu .sub-children-menu {
+        border-radius: var(--rounded-radius, 8px);
+    }
+    
+    /* 确保圆角效果在所有主题变体中一致 */
+    .rounded-style .dropdown-menu .sub-children-menu {
+        border-radius: var(--rounded-radius, 8px);
+    }
+    
+    /* 确保二级菜单在导航栏换行时正确显示 */
+    .menu-parent.visible .submenu {
+        top: 100%;
+    }
+    
+    /* 非大型菜单中的卡片和按钮容器居中显示 - 只影响外部容器 */
+    .dropdown-menu .submenu .menu-card-item,
+    .dropdown-menu .submenu .menu-button-item,
+    .dropdown-menu .submenu .menu-card-wrapper,
+    .dropdown-menu .submenu .menu-button-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        text-align: initial;
+    }
+    
+    /* 确保非大型菜单中的卡片和按钮仅居中 - 不修改内部结构 */
+    .dropdown-menu .submenu .menu-card,
+    .dropdown-menu .submenu .menu-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

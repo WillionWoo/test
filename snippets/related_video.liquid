@@ -1,0 +1,28 @@
+<div class="wrap_title mb__30">
+  <h3 class="pr t4s-title t4s-section-title ">{%- if product.metafields.meta.related_video_title != blank -%}{{product.metafields.meta.related_video_title}}{%- else-%}{{'products.related_video.title' | t}}{%- endif -%}</h3>
+  <p class="section-subtitle pr fs__16 ">{%- if product.metafields.meta.related_video_subtitle != blank -%}{{product.metafields.meta.related_video_subtitle}}{%- else-%}{{'products.related_video.subtitle' | t}}{%- endif -%}</p>
+</div>
+<div class="in_flex w__100">
+  <ul class="ul_none fl_nowrap oah flex al_center pl__0" style="margin-bottom:0">
+    {% assign pr_videos = product.metafields.meta.related_video_sources %}
+    {% for pr_video in pr_videos.value %}
+    <li class="mr__15 mb__30 col-7 col-md-5 col-lg-2 related_vid ">
+      {% assign video_sources = pr_video.sources %}
+      <video class="w__100 vid_nt vid_bg lazypreloadt4s" preload="metadata" controls controlsList="nodownload" muted poster="{{ pr_video.preview_image | image_url: width: 300 }}">
+        {% for video_source in video_sources %}
+        <source src="{{ video_source.url }}" type="video/{{ video_source.format }}">
+        {% endfor %}
+        <img loading="lazy" width=auto height=auto src="{{ pr_video.preview_image | image_url: width: 300 }}">
+      </video>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<style>
+  #related_video{padding:0;margin-bottom:30px;margin-top:30px;border-top:0px solid var(--border-color);border-bottom:1px solid var(--border-color);}
+  #related_video .t4s-container {max-width:980px}
+  .section-title{font-size:20px}
+  .related_vid{min-width:calc(50% - 15px);padding:0}
+  .related_vid video.vid_nt {background: #000;box-shadow: 2px 4px 12px #00000014;border-radius:5px;min-height:350px;max-height:350px;}
+</style>

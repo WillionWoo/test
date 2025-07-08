@@ -1,0 +1,102 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const blockedKeywords = [
+      '/gtag/js',
+      'gtag(',
+      '/checkouts',
+      '/tiktok-track.js',
+      '/hotjar-',
+      '/smile-',
+      '/adoric.js',
+      '/wpm/',
+      'fbq(',
+      'client.',
+      'criteo',
+      'dwin1',
+      'roeyecdn',
+      'reviews-',
+      'klaviyo',
+      'clarity',
+      'impactcdn',
+      'bing',
+      'fwcdn3',
+      'loox',
+      'udesk',
+      'pixel',
+      'announcement',
+      'xmplus',
+      'sensorsdata',
+      'chunk.',
+      'global.',
+      'google',
+      'omnisnippet1',
+      'cybba',
+      'preloads.',
+      'track',
+      'snippet.',
+      '/live-',
+      'perf-kit',
+      'rtb123',
+      'ccjs.umd.js',
+      'cybba_latest.min.js',
+      '/tapita-seo-speed-100',
+      '/shop_events_listener-',
+      'cybba_latest.min.js',
+      'live-helper.js',
+      'fwn.js',
+      'shopify.js',
+      'fwscripts',
+      'dwin1',
+      'gtag',
+      'gtm',
+      'klaviyo.js',
+      'klaviyo.com',
+      'fbevents.js',
+    ];
+    const webScripts = document.getElementsByTagName('script');
+    const deferredScripts = [];
+    function deferScriptLoading(script) {
+      const src = script.getAttribute('src');
+      if (src && blockedKeywords.some((keyword) => src.includes(keyword))) {
+        script.setAttribute('data-src', src);
+        script.removeAttribute('src');
+        deferredScripts.push(script);
+      }
+    }
+    for (let i = 0; i < webScripts.length; i++) {
+      deferScriptLoading(webScripts[i]);
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach((node) => {
+            if (node.tagName === 'SCRIPT') {
+              const src = node.getAttribute('src');
+              deferScriptLoading(node);
+            }
+          });
+        }
+      });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document.head, { childList: true, subtree: true });
+
+    document.addEventListener('lt:loaded', () => {
+      deferredScripts.forEach((script) => {
+        script.setAttribute('src', script.getAttribute('data-src'));
+      });
+      observer.disconnect();
+    });
+  });
+</script>
+
+{%- if product.metafields.lute.media_group == true -%}
+  <script>
+    Object.defineProperty(window, '__productWizRio', {
+      value: false,
+      writable: false,
+    });
+  </script>
+{%- endif -%}

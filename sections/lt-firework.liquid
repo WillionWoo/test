@@ -1,0 +1,362 @@
+<script defer src="//asset.fwcdn3.com/js/integrations/shopify.js" type="text/javascript"></script>
+<script defer src="//asset.fwcdn3.com/js/fwn.js" type="text/javascript"></script>
+
+{%- liquid
+  assign section_st = section.settings
+  assign section_width = section_st.section_width
+-%}
+
+<div class="{{ section_width }} ">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'block' -%}
+        <fw-storyblock
+          {%- if product.metafields.firework.playlist != blank -%}
+            playlist="{{ product.metafields.firework.playlist }}"
+          {% elsif block.settings.playlist != blank %}
+            playlist="{{ block.settings.playlist }}"
+          {% else %}
+            skus="{{product.id}}"
+          {% endif %}
+          channel="{{ block.settings.channel }}"
+          mode="pinned"
+          autoplay="{{ block.settings.autoplay }}"
+          player_placement="{{ block.settings.player_placement }}"
+        ></fw-storyblock>
+
+      {%- when 'feed' -%}
+        <fw-embed-feed
+          channel="{{ block.settings.channel }}"
+          {%- if product.metafields.firework.playlist != blank -%}
+            playlist="{{ product.metafields.firework.playlist }}"
+          {% elsif block.settings.playlist != blank %}
+            playlist="{{ block.settings.playlist }}"
+          {% else %}
+            skus="{{product.id}}"
+          {% endif %}
+          mode="{{ block.settings.layout }}"
+          size="{{ block.settings.size }}"
+          pip="{{ block.settings.pip }}"
+          placement="middle"
+          player_placement="{{ block.settings.player_placement }}"
+          branding="false"
+        ></fw-embed-feed>
+      {%- when 'feed_block' -%}
+        <fw-storyblock
+          {%- if product.metafields.firework.playlist != blank -%}
+            playlist="{{ product.metafields.firework.playlist }}"
+          {% elsif block.settings.playlist != blank %}
+            playlist="{{ block.settings.playlist }}"
+          {% else %}
+            skus="{{product.id}}"
+          {% endif %}
+          channel="{{ block.settings.channel }}"
+          mode="pinned"
+          autoplay="{{ block.settings.autoplay }}"
+          player_placement="{{ block.settings.player_placement }}"
+        ></fw-storyblock>
+
+        <fw-embed-feed
+          channel="{{ block.settings.channel }}"
+          {%- if product.metafields.firework.playlist != blank -%}
+            playlist="{{ product.metafields.firework.playlist }}"
+          {% elsif block.settings.playlist != blank %}
+            playlist="{{ block.settings.playlist }}"
+          {% else %}
+            skus="{{product.id}}"
+          {% endif %}
+          mode="{{ block.settings.layout }}"
+          size="{{ block.settings.size }}"
+          pip="{{ block.settings.pip }}"
+          placement="middle"
+          player_placement="{{ block.settings.player_placement }}"
+          branding="false"
+        ></fw-embed-feed>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+{% schema %}
+{
+  "name": "Custom Firework App",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:sections.all.section_width.label",
+      "default": "fluid_container",
+      "options": [
+        {
+          "value": "container",
+          "label": "t:sections.all.section_width.container.label"
+        },
+        {
+          "value": "fluid_container",
+          "label": "t:sections.all.section_width.fluid_container.label"
+        },
+        {
+          "value": "stretch_width",
+          "label": "t:sections.all.section_width.stretch_width.label"
+        },
+        {
+          "value": "full_width",
+          "label": "t:sections.all.section_width.full_width.label"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "浮动块",
+      "settings": [
+        {
+          "id": "channel",
+          "type": "text",
+          "label": "Channel",
+          "default": "momcozy"
+        },
+        {
+          "id": "playlist",
+          "type": "text",
+          "label": "Playlist",
+          "info": "不填写将使用 产品ID(product.id) 匹配 (产品源字段(firework.playlist) 具有最高优先级)"
+        },
+        {
+          "id": "autoplay",
+          "type": "checkbox",
+          "label": "Autoplay",
+          "default": true
+        },
+        {
+          "id": "player_placement",
+          "type": "select",
+          "label": "Player placement",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top left"
+            },
+            {
+              "value": "top-right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "bottom-left"
+        }
+      ]
+    },
+    {
+      "type": "feed",
+      "name": "列表",
+      "settings": [
+        {
+          "id": "channel",
+          "type": "text",
+          "label": "Channel",
+          "default": "momcozy"
+        },
+        {
+          "id": "playlist",
+          "type": "text",
+          "label": "Playlist",
+          "info": "不填写将使用 产品ID(product.id) 匹配 (产品源字段(firework.playlist) 具有最高优先级)"
+        },
+        {
+          "id": "autoplay",
+          "type": "checkbox",
+          "label": "Autoplay",
+          "default": true
+        },
+        {
+          "id": "player_placement",
+          "type": "select",
+          "label": "Player placement",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top left"
+            },
+            {
+              "value": "top-right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "bottom-left"
+        },
+        {
+          "type": "header",
+          "content": "Appearance"
+        },
+        {
+          "id": "layout",
+          "type": "select",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "row",
+              "label": "row"
+            },
+            {
+              "value": "grid",
+              "label": "grid"
+            },
+            {
+              "value": "pinned",
+              "label": "pinned"
+            }
+          ],
+          "default": "row"
+        },
+        {
+          "type": "header",
+          "content": "Advanced"
+        },
+        {
+          "id": "size",
+          "type": "select",
+          "label": "Size",
+          "options": [
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            }
+          ],
+          "default": "large"
+        },
+        {
+          "id": "pip",
+          "type": "checkbox",
+          "label": "Picture-in-picture",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "feed_block",
+      "name": "列表 & 浮动块",
+      "settings": [
+        {
+          "id": "channel",
+          "type": "text",
+          "label": "Channel",
+          "default": "momcozy"
+        },
+        {
+          "id": "playlist",
+          "type": "text",
+          "label": "Playlist",
+          "info": "不填写将使用 产品ID(product.id) 匹配 (产品源字段(firework.playlist) 具有最高优先级)"
+        },
+        {
+          "id": "autoplay",
+          "type": "checkbox",
+          "label": "Autoplay",
+          "default": true
+        },
+        {
+          "id": "player_placement",
+          "type": "select",
+          "label": "Player placement",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top left"
+            },
+            {
+              "value": "top-right",
+              "label": "Top right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "bottom-left"
+        },
+        {
+          "type": "header",
+          "content": "Appearance"
+        },
+        {
+          "id": "layout",
+          "type": "select",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "row",
+              "label": "row"
+            },
+            {
+              "value": "grid",
+              "label": "grid"
+            },
+            {
+              "value": "pinned",
+              "label": "pinned"
+            }
+          ],
+          "default": "row"
+        },
+        {
+          "type": "header",
+          "content": "Advanced"
+        },
+        {
+          "id": "size",
+          "type": "select",
+          "label": "Size",
+          "options": [
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            }
+          ],
+          "default": "large"
+        },
+        {
+          "id": "pip",
+          "type": "checkbox",
+          "label": "Picture-in-picture",
+          "default": true,
+          "info": "自动在指定位置展示一个浮动窗口"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Firework App",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,76 @@
+<script type="text/javascript">
+  (function(e,a,c,u,t,n,i){e.bxtag||(t=e.bxtag=function(){t.invokeFunc?t.invokeFunc.apply(t,arguments):t.qu.push(arguments)},e._tecq||(e._tecq=t),t.push=t,t.qu=[],n=a.createElement(c),n.async=!0,n.src=u,i=a.getElementsByTagName(c)[0],i.parentNode.insertBefore(n,i))})(window,document,"script","//pixel.bxtag.com/tag/brainx.min.js");
+  bxtag("init",'X-WJESZ7TB7HWH');
+  bxtag("event","page_view",{desc: document.title});
+</script>
+
+{% if template.name == 'collection' %}
+  <script type="text/javascript">
+                bxtag('event', 'view_category', {
+                        desc: '{{ collection.title }}'
+                });
+  </script>
+{% endif %}
+
+{% if template.name == 'product' && product %}
+  <script type="text/javascript">
+    bxtag('event', 'view_item', {
+            price: '{{ product.price | money_without_currency | remove: '.' | remove: ','  | divided_by: 100.0 }}',
+            currency: '{{ shop.currency }}',
+            productName: '{{ product.title | escape }}',
+            productId: '{{ product.id }}',
+            imageLink:'{{product.featured_image | product_img_url: "large" | replace: "//", "https://"}}'
+    });
+  </script>
+
+{% endif %}
+
+
+{% if template.name == 'cart' && cart && cart.items %}
+  <script type="text/javascript">
+      bxtag('event', 'view_cart', {
+    price: '{{ cart.total_price | money_without_currency | remove: '.' | remove: ','  | divided_by: 100.0}}',
+    currency: '{{ shop.currency }}',
+    contents: [
+      {% for line in cart.items %}
+        {
+          productId: '{{ line.product_id }}', //商品ID(必填)
+          productName: '{{ line.product.title | escape }}', //商品名称(非必填)
+          price: '{{ line.original_price | money }}', //售价(必填)
+          quantity:'{{ line.quantity }}' //商品数量(必填) 
+        }
+        {% unless forloop.last == true %}, {% endunless %}
+      {% endfor %}
+    ]
+      });
+  </script>
+{% endif %}
+
+{% if template.name == 'index' %}
+  <script type="text/javascript">
+      bxtag('event', 'home');
+  </script>
+{% endif %}
+
+
+{% if search.performed %}
+  <script type="text/javascript">
+        bxtag('event', 'search', {
+                desc: "{{ search.terms }}"
+      });
+  </script>
+{% endif %}
+
+
+{% if template.name == 'register' %}
+  <script type="text/javascript">
+      bxtag('event', 'sign_up');
+  </script>
+{% endif %}
+
+
+{% if template.name == 'login' %}
+  <script type="text/javascript">
+      bxtag('event', 'login');
+  </script>
+{% endif %}

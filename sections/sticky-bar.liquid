@@ -1,0 +1,232 @@
+{%- liquid
+  assign product_form_id = 'product-form-btn-' | append: section.id
+  assign page_product = section.settings.product
+  assign section_id = section.id
+-%}
+
+<style>
+  .header-goods-wrapper {
+    background: #fff;
+  }
+  .header_goods {
+    color: #000;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1410px;
+    margin-inline: auto;
+    padding-block: 10px;
+  }
+  .header_goods .title {
+    min-width: 50%;
+  }
+
+  .header_goods .title h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-block: 0;
+  }
+
+  .header_goods .btns {
+    display: flex;
+    gap: 8px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .header_goods .btn {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 8px;
+    border-radius: 99px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  @media (min-width: 1280px) {
+    .header_goods .btn {
+      padding: 10px 28px;
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .header_goods .title h2 {
+      font-size: 24px;
+    }
+  }
+</style>
+
+<template id="sticky-bar">
+  <div class="header-goods-wrapper stretch_width">
+    <div class="header_goods">
+      <div class="title">
+        <h2>{{ section.settings.title | default: page_product.title }}</h2>
+      </div>
+      <div class="btns">
+        {%- for block in section.blocks -%}
+          {%- assign block_st = block.settings -%}
+          {%- case block.type -%}
+            {%- when 'link' -%}
+              <div class="color-{{ block_st.color_scheme }}">
+                <a
+                  class="btn btn-primary no-underline "
+                  href="{{ page_product.url }}"
+                >
+                  {{ block_st.txt | default: 'products.product.shop_now' | t }}
+                </a>
+              </div>
+            {%- when 'cart_button' -%}
+              <product-form class="block max color-{{ block_st.color_scheme }} rounded-full bg-transparent">
+                {%- form 'product',
+                  page_product,
+                  id: product_form_id,
+                  class: 'form',
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ page_product.selected_or_first_available_variant.id }}"
+                    disabled
+                  >
+                  <button
+                    id="{{ product_form_id }}-submit"
+                    type="submit"
+                    name="add"
+                    class="btn btn-primary product-item__button-submit bls-add-cart-list transition block relative text-center w-full "
+                    style="--max-width: 23rem;"
+                    aria-haspopup="dialog"
+                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ page_product.id }}"
+                    aria-live="polite"
+                    data-sold-out-message="true"
+                    {% if page_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span class="hidden-on-load btn-action">
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        {{ block_st.txt | default: 'products.product.actions.add_to_cart.default.label' | t }}
+                      {%- else -%}
+                        {{ 'products.product.actions.add_to_cart.sold_out.label' | t }}
+                      {% endif %}
+                    </span>
+                    <span class="sold-out-message hidden hidden-on-load">
+                      {{ 'products.product.actions.add_to_cart.sold_out.label' | t }}
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="spin opacity-0 icon-load">
+                      <use href="#icon-load"></use>
+                    </svg>
+                  </button>
+                {%- endform -%}
+              </product-form>
+            {%- when 'quickview_button' -%}
+              <div class="color-{{ block_st.color_scheme }}">
+                <button-quickview
+                  data-custom-class="quickview"
+                  class="btn btn-primary"
+                  data-url="{{ page_product.url }}?section_id=product-quickview&ajax=1"
+                >
+                  {{ block.settings.txt | default: 'products.product.actions.add_to_cart.default.label' | t }}
+                </button-quickview>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  function initStickyBar() {
+    const stickyBar = document.querySelector('#sticky-bar');
+    if (!stickyBar) return;
+    const sectionHeader = document.querySelector('.section-header');
+    // 克隆模板内容
+    const stickyBarContent = stickyBar.content.cloneNode(true);
+    // 将克隆的内容添加到目标位置
+    sectionHeader.appendChild(stickyBarContent);
+  }
+  initStickyBar();
+</script>
+
+{% schema %}
+{
+  "name": "Sticky Bar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Link",
+      "type": "link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "txt",
+          "label": "Text"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.color_scheme.label"
+        }
+      ]
+    },
+    {
+      "name": "Add to Cart Button",
+      "type": "cart_button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "txt",
+          "label": "Add to Cart Text"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.color_scheme.label"
+        }
+      ]
+    },
+    {
+      "name": "quickview Button",
+      "type": "quickview_button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "txt",
+          "label": "Quickview Text"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.color_scheme.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky Bar",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,142 @@
+<script src="{{- 'calculator.js' | asset_url | script -}}" defer="defer"></script>
+
+{% style %}
+.w__fitting_room {
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  background: white;
+  padding: 15px;
+}
+{% endstyle %}
+
+<div class="w__SizeCalc">
+  <div class="ic-bra-calculator t4s-container">
+    <div class="ic-bra-calculator__inner row">
+      <div class="ic-bra-calculator__field col-12 col-sm-6">
+        <div class="w__SizeCalcBlock">
+          <span class="w__SizeCalcSort">1</span>
+          <img loading="lazy" class="w__SizeCalcImg" src="https://cdn.shopify.com/s/files/1/0521/8956/0993/files/band__size.png?v=1684384302" alt="measure your band size" />
+          <div class="ic-bra-calculator__field-name">1. Measure your <strong>Band</strong></div>
+          <p>With your bra on and tape measure ready, tightly wrap a tape measure just below your bra band keeping it level. Round up to the nearest half inch.</p>
+          <select id="band__size" class="ic-bra-converter__field-select">
+            <option value="Your Band Size">Your Band Size</option>
+            <option value="	28">28</option>
+            <option value="	28.5">28.5</option>
+            <option value="	29">29</option>
+            <option value="	29.5">29.5</option>
+            <option value="	30">30</option>
+            <option value="	30.5">30.5</option>
+            <option value="	31">31</option>
+            <option value="	31.5">31.5</option>
+            <option value="	32">32</option>
+            <option value="	32.5">32.5</option>
+            <option value="	33">33</option>
+            <option value="	33.5">33.5</option>
+            <option value="	34">34</option>
+            <option value="	34.5">34.5</option>
+            <option value="	35">35</option>
+            <option value="	35.5">35.5</option>
+            <option value="	36">36</option>
+            <option value="	36.5">36.5</option>
+            <option value="	37">37</option>
+            <option value="	37.5">37.5</option>
+            <option value="	38">38</option>
+            <option value="	38.5">38.5</option>
+            <option value="	39">39</option>
+            <option value="	39.5">39.5</option>
+            <option value="	40">40</option>
+            <option value="	40.5">40.5</option>
+            <option value="	41">41</option>
+            <option value="	41.5">41.5</option>
+            <option value="	42">42</option>
+            <option value="	42.5">42.5</option>
+            <option value="	43">43</option>
+            <option value="	43.5">43.5</option>
+            <option value="	44">44</option>
+            <option value="	44.5">44.5</option>
+            <option value="	45">45</option>
+            <option value="	45.5">45.5</option>
+            <option value="	46">46</option>
+            <option value="	46.5">46.5</option>
+            <option value="	47">47</option>
+            <option value="	47.5">47.5</option>
+            <option value="	48">48</option>
+          </select>
+          <span> inches</span>
+        </div>
+      </div>
+      <div class="ic-bra-calculator__field col-12 col-sm-6">
+        <div class="w__SizeCalcBlock">
+          <span class="w__SizeCalcSort">2</span>
+          <img loading="lazy" class="w__SizeCalcImg" src="https://cdn.shopify.com/s/files/1/0521/8956/0993/files/cup__size.png?v=1684384302" alt="measure your cup size" />
+          <div class="ic-bra-calculator__field-name">2. Measure your <strong>Bust</strong></div>
+          <p>Wrap the tape around the fullest point of your bust and do not tighten. Round up to the nearest half inch.Please lean forward about 45 degrees while you do the bust measurement.</p>
+          <select id="cup__size" class="ic-bra-converter__field-select">
+            <option value="Your Cup Size">Your Cup Size</option>
+            <option value="	33">33</option>
+            <option value="	33.5">33.5</option>
+            <option value="	34">34</option>
+            <option value="	34.5">34.5</option>
+            <option value="	35">35</option>
+            <option value="	35.5">35.5</option>
+            <option value="	36">36</option>
+            <option value="	36.5">36.5</option>
+            <option value="	37">37</option>
+            <option value="	37.5">37.5</option>
+            <option value="	38">38</option>
+            <option value="	38.5">38.5</option>
+            <option value="	39">39</option>
+            <option value="	39.5">39.5</option>
+            <option value="	40">40</option>
+            <option value="	40.5">40.5</option>
+            <option value="	41">41</option>
+            <option value="	41.5">41.5</option>
+            <option value="	42">42</option>
+            <option value="	42.5">42.5</option>
+            <option value="	43">43</option>
+            <option value="	43.5">43.5</option>
+            <option value="	44">44</option>
+            <option value="	44.5">44.5</option>
+            <option value="	45">45</option>
+            <option value="	45.5">45.5</option>
+            <option value="	46">46</option>
+            <option value="	46.5">46.5</option>
+            <option value="	47">47</option>
+            <option value="	47.5">47.5</option>
+            <option value="	48">48</option>
+            <option value="	48.5">48.5</option>
+            <option value="	49">49</option>
+            <option value="	49.5">49.5</option>
+            <option value="	50">50</option>
+            <option value="	50.5">50.5</option>
+            <option value="	51">51</option>
+            <option value="	51.5">51.5</option>
+            <option value="	52">52</option>
+            <option value="	52.5">52.5</option>
+            <option value="	53">53</option>
+            <option value="	53.5">53.5</option>
+            <option value="	54">54</option>
+            <option value="	54.5">54.5</option>
+            <option value="	55">55</option>
+            <option value="	55.5">55.5</option>
+            <option value="	56">56</option>
+            <option value="	56.5">56.5</option>
+            <option value="	57">57</option>
+          </select>
+          <span> inches</span>
+        </div>
+      </div>
+      <div class="ic-bra-calculator__field col-12">
+        <div class="ic-bra-calculator__field-name mt__20 tc"> Recommended Size </div>
+        <span id="ic-bra-size-value" class="ic-bra-calculator__field-value w__SizeCalcResult"> - </span>
+        <p class="w__SizeCalcResult1_title">Or choose the sister size: <span id="ic-sister-size-value" class="ic-bra-calculator__field-value w__SizeCalcResult1"> - </span></p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <p class="find-your-bra-size__paragraph">
+    Don't know how to measure? Talk with our experts for help. <a class="txt_under fwb" href="/pages/contact-us">Contact us</a>
+  </p>
+</div>

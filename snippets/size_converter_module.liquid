@@ -1,0 +1,104 @@
+<script src="{{- 'converter.js' | asset_url | script -}}" defer="defer"></script>
+
+<div class="size__converter">
+  <h3 class="find-your-bra-size__heading">Size Converter</h3>
+  <p class="find-your-bra-size__paragraph">
+    This is an approximate conversion tool to help you find your used to size.
+  </p>
+  <div class="find-your-bra-size__ic-bra-converter">
+    <div class="ic-bra-converter">
+      <div class="ic-bra-converter__inner">
+        <div class="ic-bra-converter__field">
+          <span class="ic-bra-converter__field-name"> Country </span>
+          <select id="ic-bra-converter-countries" class="ic-bra-converter__field-select">
+            <option value="AU">AU</option>
+            <option value="NZ">NZ</option>
+            <option value="US">US</option>
+            <option value="UK">UK</option>
+            <option value="EU">EU</option>
+            <option value="CN">CN</option>
+            <option value="JP">JP</option>
+            <option value="HK">HK</option>
+            <option value="KR">KR</option>
+            <option value="FR">FR</option>
+            <option value="ES">ES</option>
+            <option value="BE">BE</option>
+          </select>
+        </div>
+        <div class="ic-bra-converter__field">
+          <span class="ic-bra-converter__field-name"> Size </span>
+          <select id="ic-bra-converter-sizes" class="ic-bra-converter__field-select">
+            <option data-country-code="AU" value="6AA">6AA</option>
+            <option data-country-code="AU" value="6A">6A</option>
+            <option data-country-code="AU" value="6B">6B</option>
+            <option data-country-code="AU" value="6C">6C</option>
+            <option data-country-code="AU" value="6D">6D</option>
+            <option data-country-code="AU" value="6DD">6DD</option>
+            <option data-country-code="AU" value="6E">6E</option>
+            <option data-country-code="AU" value="6F">6F</option>
+            <option data-country-code="AU" value="6G">6G</option>
+            <option data-country-code="AU" value="8AA">8AA</option>
+            <option data-country-code="AU" value="8A">8A</option>
+            <option data-country-code="AU" value="8B">8B</option>
+            <option data-country-code="AU" value="8C">8C</option>
+            <option data-country-code="AU" value="8D">8D</option>
+            <option data-country-code="AU" value="8DD">8DD</option>
+            <option data-country-code="AU" value="8E">8E</option>
+            <option data-country-code="AU" value="8F">8F</option>
+            <option data-country-code="AU" value="8FF">8FF</option>
+            <option data-country-code="AU" value="8G">8G</option>
+            <option data-country-code="AU" value="10AA">10AA</option>
+            <option data-country-code="AU" value="10A">10A</option>
+            <option data-country-code="AU" value="10B">10B</option>
+            <option data-country-code="AU" value="10C">10C</option>
+            <option data-country-code="AU" value="10D">10D</option>
+            <option data-country-code="AU" value="10DD">10DD</option>
+            <option data-country-code="AU" value="10E">10E</option>
+            <option data-country-code="AU" value="10F">10F</option>
+            <option data-country-code="AU" value="10FF">10FF</option>
+            <option data-country-code="AU" value="10G">10G</option>
+            <option data-country-code="AU" value="12AA">12AA</option>
+            <option data-country-code="AU" value="12A">12A</option>
+            <option data-country-code="AU" value="12B">12B</option>
+            <option data-country-code="AU" value="12C">12C</option>
+            <option data-country-code="AU" value="12D">12D</option>
+            <option data-country-code="AU" value="12DD">12DD</option>
+            <option data-country-code="AU" value="12E">12E</option>
+            <option data-country-code="AU" value="12F">12F</option>
+            <option data-country-code="AU" value="12FF">12FF</option>
+            <option data-country-code="AU" value="14AA">14AA</option>
+            <option data-country-code="AU" value="14A">14A</option>
+            <option data-country-code="AU" value="14B">14B</option>
+            <option data-country-code="AU" value="14C">14C</option>
+            <option data-country-code="AU" value="14D">14D</option>
+            <option data-country-code="AU" value="14DD">14DD</option>
+            <option data-country-code="AU" value="14E">14E</option>
+            <option data-country-code="AU" value="14F">14F</option>
+            <option data-country-code="AU" value="16AA">16AA</option>
+            <option data-country-code="AU" value="16A">16A</option>
+            <option data-country-code="AU" value="16B">16B</option>
+            <option data-country-code="AU" value="16C">16C</option>
+            <option data-country-code="AU" value="16D">16D</option>
+            <option data-country-code="AU" value="16DD">16DD</option>
+            <option data-country-code="AU" value="16E">16E</option>
+            <option data-country-code="AU" value="18AA">18AA</option>
+            <option data-country-code="AU" value="18A">18A</option>
+            <option data-country-code="AU" value="18B">18B</option>
+            <option data-country-code="AU" value="18C">18C</option>
+            <option data-country-code="AU" value="18D">18D</option>
+            <option data-country-code="AU" value="18DD">18DD</option>
+          </select>
+        </div>
+        <div class="ic-bra-converter__field">
+          <span class="ic-bra-converter__field-name"> HSIA Bra Size </span>
+          <span id="ic-bra-converter-hsia-value" class="ic-bra-converter__field-value">A</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p class="find-your-bra-size__paragraph">
+    If your country is not listed, you will just need to do some conversion. You
+    can do the conversion based on US size.
+  </p>
+</div>

@@ -1,0 +1,135 @@
+{%- liquid
+    assign discounts_excluded = false
+    assign ornament1 = settings.site_discount_ornament_1
+    assign ornament2 = settings.site_discount_ornament_2
+
+    assign discount_code_title = discount_code_title
+    assign discount_code = discount_code
+    assign discount_label = discount_label
+    assign discount_copy_success_text = discount_copy_success_text
+-%}
+
+
+{% if discount_code != blank %}
+
+    {%- style -%}
+    .w__DiscountCode {
+        --dotted-color: #ffffff;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .w__DiscountWrap {
+        border-radius: 0;
+        color: #000;
+        display: inline-flex;
+        align-items: center;
+        height: 50px;
+        position: relative;
+        border: 1px solid var(--border-color);
+    }
+    .w__DiscountWrap:before, .w__DiscountWrap:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        border-right: 8px dotted var(--dotted-color);
+        right: -4px;
+        z-index: 1;
+    }
+    .w__DiscountWrap:before {
+        left: -5px;
+        right: auto;
+    }
+    .w__DiscountIcon {
+        padding: 8px 10px;
+        position: relative;
+        border: 1px dashed var(--dotted-color);
+        background-color: #ffe0e0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        margin: 0;
+    }        
+    .w__DiscountIcon:before, .w__DiscountIcon:after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        display: block;
+        background: var(--dotted-color);
+        border-radius: 50%;
+        bottom: -4px;
+        right: -4px;
+        position: absolute;
+    }        
+    .w__DiscountIcon:before {
+        top: -4px;
+        bottom: auto;
+    }
+    .w__DiscountIcon > .text {
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    .w__DiscountIcon .ornament1 {
+        max-width: 46px;
+        padding: 0px 5px;
+    }
+    .w__DiscountIcon .ornament2 {
+        max-width: 32px;
+        padding: 0px 3px;
+    }
+    .w__DiscountContent {
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.2;
+        max-width: 140px;
+        text-align: center;
+        background-color: #111111;
+        height: 100%;
+    }
+    .w__DiscountContent #copy-button {
+        height: 100%;
+        padding: 0 10px
+    }
+    {%- endstyle -%}
+
+    <div class="w__DiscountCode">
+    <div class="w__DiscountWrap">
+        <label class="w__DiscountIcon">
+        <span class="text">{{ discount_code_title }}</span>
+        {%- if ornament1 != blank -%}
+            <img loading="lazy" width=auto height=auto class="img ornament1" src="{{ ornament1 | image_url: width: 60 }}" />
+        {%- endif -%}
+        {%- if ornament2 != blank -%}
+            <img loading="lazy" width=auto height=auto class="img ornament2" src="{{ ornament2 | image_url: width: 60 }}" />
+        {%- endif -%}
+        </label>
+        <div class="w__DiscountContent">
+        <div id="coupon-code" class="dn">{{ discount_code }}</div>
+        <button id="copy-button">
+        {{ discount_label }}{{ discount_code }}
+        </button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+    const couponText = document.getElementById('coupon-code');
+    const copyButton = document.getElementById('copy-button');
+    
+    copyButton.addEventListener('click', function() {
+        navigator.clipboard.writeText(couponText.textContent)
+        .then(() => {
+            copyButton.textContent = '{{ discount_copy_success_text }}';
+            setTimeout(() => {
+                copyButton.textContent = '{{ discount_label }}{{ discount_code }}';
+            }, 1000);
+        })
+        .catch(err => {
+            console.error('Copied Failed：', err);
+        });
+    });
+    </script>
+
+{% endif %}

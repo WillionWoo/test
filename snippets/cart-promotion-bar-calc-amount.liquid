@@ -1,0 +1,141 @@
+{%- if se_stts.enable_calc_ship and shipping_amount > -1 -%}
+    {%- liquid
+    assign shipping_money = shipping_amount | money_with_currency
+    assign mini_cart_price_float_0 = settings.mini_cart_discount_0.price
+    assign mini_cart_price_float_1 = settings.mini_cart_discount_1.price
+    assign mini_cart_price_0 = settings.mini_cart_discount_0.price | money_with_currency
+    assign mini_cart_price_1 = settings.mini_cart_discount_1.price | money_with_currency
+    assign enable_shipbar = settings.enable_shipbar
+    assign price_tier_1 = settings.price_tier_1.price | money_with_currency
+    assign price_tier_2 = settings.price_tier_2.price | money_with_currency 
+    -%}
+    
+    {%- if enable_shipbar -%}
+       {%- capture text_w_ship -%}
+
+        {%- if ccount > 0 -%}
+           {%- for item in cart.items -%}
+             
+             {% for excluded_item in settings.products_excluded %}
+                 {% if item.product_id == excluded_item.id %}
+                   {% assign item_break = true %}
+                 {% endif %}
+             {% endfor %}
+             
+             {% if item_break == true %}
+               {% assign item_break = false %}{% continue %}
+             {% endif %}
+             
+             {% if item.final_price == 0 %}
+               {% assign item_calc_price = item.final_price | times:item.quantity %}
+             {% else %}
+               {% assign item_calc_price = item.original_price | times:item.quantity %}
+             {% endif %}
+             {% assign shipping_calc_price = shipping_calc_price | plus:item_calc_price %}
+           {%- endfor -%}
+        {%- endif -%}
+       
+        {%- if total_price == 0 -%}
+           <div class="t4s-cart__thres">{{ settings.text_1_html | replace: '[money]',shipping_money }}</div>
+           <div class="t4s-cart__thres">{{ settings.discount_text_all | replace:'[money]',mini_cart_price_1 | replace:'[discount]',price_tier_2 }}</div>
+
+           {%- capture style_w %} style="width:0%"{% endcapture -%}
+           {%- capture style_w2 %} style="width:0%"{% endcapture -%}
+           {%- capture style_w3 %} style="width:0%"{% endcapture -%}
+          
+        {%- elsif shipping_amount > shipping_calc_price %}
+          
+          {% assign space_money = shipping_amount | minus:shipping_calc_price | money -%}
+          {% assign space_money_1 = mini_cart_price_float_0 | minus:shipping_calc_price | money -%}
+           <div class="t4s-cart__thres">{{ settings.text_2_html | replace:'[money]',space_money }}</div>
+           <div class="t4s-cart__thres fwsb fs__13">{{ settings.discount_text_2 | replace:'[money]',space_money_1 | replace:'[discount]',price_tier_1 }}</div>
+        
+           {%- liquid
+           assign percent_w1 = shipping_amount | minus: shipping_calc_price | times: 100.0 | divided_by: shipping_amount
+           assign percent_w1 = 100 | minus:percent_w1
+           -%}
+           {%- capture style_w %} style="width:{{percent_w1}}%"{% endcapture -%}
+           {%- capture style_w2 %} style="width:0%"{% endcapture -%}
+           {%- capture style_w3 %} style="width:0%"{% endcapture -%}
+          
+        {%- elsif shipping_amount < shipping_calc_price and mini_cart_price_float_0 > shipping_calc_price %}
+          
+           {% assign space_money_1 = mini_cart_price_float_0 | minus:shipping_calc_price | money -%}
+           <div class="t4s-cart__thres"><img width=18px height=auto loading="lazy" src="https://media.giphy.com/media/1wX5TJZPqVw3HhyDYn/giphy.gif">{{ settings.text_3 | replace:'[','<span class="t4s-cr is--congratulations">' | replace:']','</span>' }}</div>
+           <div class="t4s-cart__thres fwsb fs__13">{{ settings.discount_text_2 | replace:'[money]',space_money_1 | replace:'[discount]',price_tier_1 }}</div>
+
+           {%- liquid
+           assign percent_w2 = mini_cart_price_float_0 | minus: shipping_calc_price | times: 100.0 | divided_by: mini_cart_price_float_0
+           assign percent_w2 = 100 | minus:percent_w2
+           -%}
+           {%- capture style_w %} style="width:100%"{% endcapture -%}
+           {%- capture style_w2 %} style="width:{{percent_w2}}%"{% endcapture -%}
+           {%- capture style_w3 %} style="width:0%"{% endcapture -%}
+
+        {%- elsif shipping_amount < shipping_calc_price and mini_cart_price_float_0 < shipping_calc_price and mini_cart_price_float_1 > shipping_calc_price %}
+          
+           {% assign space_money_1 = mini_cart_price_float_1 | minus:shipping_calc_price | money -%}
+           <div class="t4s-cart__thres"><img width=18px height=auto loading="lazy" src="https://media.giphy.com/media/1wX5TJZPqVw3HhyDYn/giphy.gif">{{ settings.text_3 | replace:'[','<span class="t4s-cr is--congratulations">' | replace:']','</span>' }}</div>
+           <div class="t4s-cart__thres fwsb fs__13">{{ settings.discount_text_3 | replace:'[money]',space_money_1 | replace:'[discount]',price_tier_1 | replace:'[discount1]',price_tier_2 }}</div>
+
+           {%- liquid
+           assign percent_w3 = mini_cart_price_float_1 | minus: shipping_calc_price | times: 100.0 | divided_by: mini_cart_price_float_1
+           assign percent_w3 = 100 | minus:percent_w3
+           -%}
+           {%- capture style_w %} style="width:100%"{% endcapture -%}
+           {%- capture style_w2 %} style="width:100%"{% endcapture -%}
+           {%- capture style_w3 %} style="width:{{percent_w3}}%"{% endcapture -%}
+        
+        {%- else -%}
+           <div data-cart-ship-done>
+             <div class="t4s-cart__thres"><img width=18px height=auto loading="lazy" src="https://media.giphy.com/media/1wX5TJZPqVw3HhyDYn/giphy.gif">{{ 'cart.shipping_threshold.text_3' | t | replace:'[','<span class="t4s-cr is--congratulations">' | replace:']','</span>' }}</div>
+             <div class="t4s-cart__thres fwb cr">{{ settings.discount_text_4 | replace:'[discount]',price_tier_2 }}</div>
+           </div>
+
+           {%- capture style_w %} style="width:100%"{% endcapture -%}
+           {%- capture style_w2 %} style="width:100%"{% endcapture -%}
+           {%- capture style_w3 %} style="width:100%"{% endcapture -%}
+        {%- endif -%}
+
+     {%- endcapture -%}
+        
+  {%- endif -%}
+
+  <link rel="stylesheet" href="{{ 'shipping_bar.css' | asset_url }}" media="all">
+  <div data-cart-calc-shipping class="t4s-cart__threshold" style="--main-threshold-color:{{settings.active_bar_color}};">
+    <div data-cart-ship-text>
+     {{- text_w_ship -}}
+     {%- if enable_shipbar %}
+       <div data-cart-ship-bar class="t4s-cart-thes__bar bgt4_svg{{settings.des_shipbar}} pr">
+       
+         {% if style_w contains '100%' %}<span class="w__processBar" style=""></span>{% endif %}
+         <div class="pr w__item_bar_wrap">
+           <div class="item_bar_bg" style="">
+             <span class="pa tier_icon "><svg xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 0 640 512"><path d="M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c8.8 0 16 7.2 16 16s-7.2 16-16 16H64 48c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 240c8.8 0 16 7.2 16 16s-7.2 16-16 16H64 16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 208c8.8 0 16 7.2 16 16s-7.2 16-16 16H64V416c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H112zM544 237.3V256H416V160h50.7L544 237.3zM160 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm272 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/></svg></span>
+             <span class="item_bar t4s-pr t4s-d-block t4s-h-100"{{style_w}}></span>
+           </div>
+           <span class="w__processBarGift">{{ settings.promotion_bar_gift_1 }}</span>
+         </div>
+       
+         {% if style_w2 contains '100%' %}<span class="w__processBar" style="margin-left:50%;"></span>{% endif %}
+         <div class="pr w__item_bar_wrap">
+           <div class="item_bar_bg" style="">
+             <span class="pa tier_icon "><svg xmlns="http://www.w3.org/2000/svg" width="14px" viewBox="0 0 512 512"><path d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z"/></svg></span>
+             <span class="item_bar t4s-pr t4s-d-block t4s-h-100"{{style_w2}}></span>
+           </div>
+           <span class="w__processBarGift">{{ settings.promotion_bar_gift_2 }}</span>
+         </div>
+       
+         <div class="pr w__item_bar_wrap">
+           <div class="item_bar_bg" style="">
+             <span class="pa tier_icon "><svg xmlns="http://www.w3.org/2000/svg" width="16px" viewBox="0 0 640 512"><path d="M200.6 32C205 19.5 198.5 5.8 186 1.4S159.8 3.5 155.4 16L144.7 46.2l-9.9-29.8C130.6 3.8 117-3 104.4 1.2S85 19 89.2 31.6l8.3 25-27.4-20c-10.7-7.8-25.7-5.4-33.5 5.3s-5.4 25.7 5.3 33.5L70.2 96H48C21.5 96 0 117.5 0 144V464c0 26.5 21.5 48 48 48H200.6c-5.4-9.4-8.6-20.3-8.6-32V256c0-29.9 20.5-55 48.2-62c1.8-31 17.1-58.2 40.1-76.1C271.7 104.7 256.9 96 240 96H217.8l28.3-20.6c10.7-7.8 13.1-22.8 5.3-33.5s-22.8-13.1-33.5-5.3L192.5 55.1 200.6 32zM363.5 185.5L393.1 224H344c-13.3 0-24-10.7-24-24c0-13.1 10.8-24 24.2-24c7.6 0 14.7 3.5 19.3 9.5zM272 200c0 8.4 1.4 16.5 4.1 24H272c-26.5 0-48 21.5-48 48v80H416V256h32v96H640V272c0-26.5-21.5-48-48-48h-4.1c2.7-7.5 4.1-15.6 4.1-24c0-39.9-32.5-72-72.2-72c-22.4 0-43.6 10.4-57.3 28.2L432 195.8l-30.5-39.6c-13.7-17.8-35-28.2-57.3-28.2c-39.7 0-72.2 32.1-72.2 72zM224 464c0 26.5 21.5 48 48 48H416V384H224v80zm224 48H592c26.5 0 48-21.5 48-48V384H448V512zm96-312c0 13.3-10.7 24-24 24H470.9l29.6-38.5c4.6-5.9 11.7-9.5 19.3-9.5c13.4 0 24.2 10.9 24.2 24z"/></svg></span>
+             <span class="item_bar t4s-pr t4s-d-block t4s-h-100"{{style_w3}}></span>
+           </div>
+           <span class="w__processBarGift">{{ settings.promotion_bar_gift_3 }}</span>
+         </div>
+       
+       </div>
+     {% endif -%}
+    </div>
+  </div>
+{%- endif -%}

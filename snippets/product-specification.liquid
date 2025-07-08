@@ -1,0 +1,24 @@
+{% style %}
+  .w__prSpecification {
+    
+  }
+  .w__prSpecificationTitle {
+    
+  }
+  .w__prSpecificationContent {
+    
+  }
+{% endstyle %}
+
+<div class="w__prSpecification row al_center fl_between">
+  
+  {% for specification in product.metafields.meta.specification.value %}
+  {%- assign array_specification = specification | split:';;;' | compact -%}
+    <div class="col-6 col-md-6 col-lg-6">
+      <div class="w__prSpecificationTitle">{{ array_specification[0] }}</div>
+      <div class="w__prSpecificationContent">{{ array_specification[1] }}</div>
+    </div>
+  {% endfor %}
+  
+</div>
+

@@ -1,0 +1,230 @@
+{% if product.available %}
+
+  {% liquid
+    assign country_disable = false
+    
+    if product.metafields.meta.country_limited == 'include'
+      if product.metafields.meta.limit_country_list.value contains localization.country.iso_code
+        assign country_disable = false
+      else
+        assign country_disable = true
+      endif
+    elsif product.metafields.meta.country_limited == 'exclude'
+      if product.metafields.meta.limit_country_list.value contains localization.country.iso_code
+        assign country_disable = true
+      else
+        assign country_disable = false
+      endif
+    endif
+  %}
+
+  {% if country_disable == false %}
+  
+    {% if product.metafields.meta.countdown != blank %}
+      {{ 'countdown.css' | asset_url | stylesheet_tag }}
+      {%- liquid
+         assign meta = product.metafields.meta.countdown
+         assign cd_date = meta | date: '%Y/%m/%d %H:%M:%S' 
+      -%}
+      
+      <div class="w__FlashSale">
+      
+        <div id="t4s-sold__new" style="font-size:1.4rem;" class="ml__10 mr__10 t4s-pr_flash_sold t4s-fwm t4s-dn" data-time="120000" data-flash-sold='{ "mins": 64, "maxs": 164, "mint": 2, "maxt": 12, "id": "{{ product.id }}", "time": 120000 }' {{ block.shopify_attributes }}>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://svg.com/svg" version="1.1" x="0" y="0" viewBox="0 0 48 48" xml:space="preserve" class="t4s-ani-none">
+            <path d="m39.8047 20.5938-19.9287 27a1.0006 1.0006 0 0 1 -.8047.4062.98.98 0 0 1 -.3838-.0771.9983.9983 0 0 1 -.6045-1.0752l2.751-17.8477h-11.834a1 1 0 0 1 -.8047-1.5937l19.9287-27a1 1 0 0 1 1.793.746l-2.751 17.8477h11.834a1 1 0 0 1 .8047 1.5938z" fill="#ffce33" data-original="#ffce33"/>
+          </svg>
+          {{ settings.flash_sale_text | replace: '[sold]', '<span data-sold class="t4s-pr__sold t4s-fwb"></span>' | replace: '[hour]', '<span data-hour class="t4s-pr__hrs t4s-fwb"></span>' }}
+        </div>
+                      
+        <div data-countdown-pr data-countdown-wrap id="t4s-countdown-wrap__new" class="t4s-countdown-pr t4s-text-center t4s-dn" {{ block.shopify_attributes }} style="--mgb:5px;">
+          {%- if settings.countdown_message != blank -%}
+          <p class="t4s-countdown__mess t4s-lh-1 t4s-fwm fs__12 mt__10 ml__10 mr__10 mb__0 tc">{{ settings.countdown_message }}</p>
+          {%- endif -%}
+          <div id="t4s-countdow__new" 
+            class="t4s-countdown-wrap t4s-d-inline-flex t4s-justify-content-center t4s-justify-content-between t4s-lh-1 t4s-countdown-des-{{ settings.countdown_design }} t4s-countdown t4s-countdown-size-{{ settings.countdown_size }} "
+            data-date="{{ cd_date }}" data-loop="false" data-dayl="0"
+            data-cd-options='{ "isCountdownMeta": true,"cd_date": {{ cd_date | json }} }'>
+            <div class="t4s-time" style="--space-item:10px">
+              <span class="t4s-cd__time t4s-d-flex t4s-text-center is--days"><span class="t4s-cd__count cd-number">%-D</span><span class="t4s-cd__label cd-text">%!D:{{ 'products.product_single.countdown_text.day' | t }},{{ 'products.product_single.countdown_text.day_plural' | t }};</span></span>
+              <span class="t4s-cd__time t4s-d-flex t4s-text-center is--hours"><span class="t4s-cd__count cd-number">%-H</span><span class="t4s-cd__label cd-text">%!H:{{ 'products.product_single.countdown_text.hr' | t }},{{ 'products.product_single.countdown_text.hr_plural' | t }};</span></span>
+              <span class="t4s-cd__time t4s-d-flex t4s-text-center is--minutes"><span class="t4s-cd__count cd-number">%-M</span><span class="t4s-cd__label cd-text">%!M:{{ 'products.product_single.countdown_text.min' | t }},{{ 'products.product_single.countdown_text.min_plural' | t }};</span></span>
+              <span class="t4s-cd__time t4s-d-flex t4s-text-center is--seconds"><span class="t4s-cd__count cd-number">%-S</span><span class="t4s-cd__label cd-text">%!S:{{ 'products.product_single.countdown_text.sec' | t }},{{ 'products.product_single.countdown_text.sec_plural' | t }};</span></span>
+            </div>
+          </div>
+        </div>
+              
+      </div>    
+    {% endif -%}
+  
+    {%- liquid
+      assign discount_code = settings.site_discount_code
+      assign discounts_excluded = false
+      assign ornament1 = settings.site_discount_ornament_1
+      assign ornament2 = settings.site_discount_ornament_2
+       
+      assign discount_code_text = 'products.others.copy_code_text' | t
+      assign discount_copy_success_text = 'products.others.copy_code_success' | t
+    
+      if product.metafields.meta.discount_code_title != blank
+        assign discount_code_title = product.metafields.meta.discount_code_title.value
+      else
+        assign discount_code_title = settings.site_discount_code_title | split:'++' | compact
+      endif
+       
+      if product.metafields.meta.discount_code_special != blank
+          assign discount_code = product.metafields.meta.discount_code_special
+      endif
+       
+      if product.metafields.meta.discount_code_country != blank
+        for value in product.metafields.meta.discount_code_country.value
+          assign country = value | split:';;;;' | compact 
+          if localization.country.iso_code == country[0]
+     
+            if country[1] != blank
+              assign discount_code = country[1]
+            else
+              assign discount_code = product.metafields.meta.discount_code_special
+            endif
+            assign discount_code_title = country[2] | split:';;;' | compact
+     
+            break
+     
+          endif
+        endfor
+      endif
+    
+      assign excluded_country = settings.site_discounts_excluded | split:',' | compact 
+      for check in excluded_country
+        if localization.country.iso_code == check
+    
+          assign discounts_excluded = true
+          break
+    
+        endif
+      endfor
+      
+    -%}
+  
+  
+    {% if discount_code != blank and discounts_excluded == false %}
+    
+      {%- style -%}
+        .w__DiscountCode {
+            --dotted-color: #ffffff;
+        }
+        .w__DiscountWrap {
+            border-radius: 0;
+            color: #000;
+            display: inline-flex;
+            align-items: center;
+            height: 50px;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+        .w__DiscountWrap:before, .w__DiscountWrap:after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            border-right: 8px dotted var(--dotted-color);
+            right: -4px;
+            z-index: 1;
+        }
+        .w__DiscountWrap:before {
+            left: -5px;
+            right: auto;
+        }
+        .w__DiscountIcon {
+            padding: 8px 10px;
+            position: relative;
+            border: 1px dashed var(--dotted-color);
+            background-color: #ffe0e0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }        
+        .w__DiscountIcon:before, .w__DiscountIcon:after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            display: block;
+            background: var(--dotted-color);
+            border-radius: 50%;
+            bottom: -4px;
+            right: -4px;
+            position: absolute;
+        }        
+        .w__DiscountIcon:before {
+            top: -4px;
+            bottom: auto;
+        }
+        .w__DiscountIcon > .text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .w__DiscountIcon .ornament1 {
+            max-width: 46px;
+            padding: 0px 5px;
+        }
+        .w__DiscountIcon .ornament2 {
+            max-width: 32px;
+            padding: 0px 3px;
+        }
+        .w__DiscountContent {
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.2;
+            max-width: 140px;
+            text-align: center;
+            background-color: #111111;
+            height: 100%;
+        }
+        .w__DiscountContent #copy-button {
+            height: 100%;
+            padding: 0 10px
+        }
+      {%- endstyle -%}
+    
+      <div class="w__DiscountCode">
+        <div class="w__DiscountWrap">
+          <label class="w__DiscountIcon">
+            <span class="text">{{ discount_code_title[0] }}</span>
+            <span> {{ discount_code_title[1] }}</span>
+            {%- if ornament1 != blank -%}
+              <img loading="lazy" width=auto height=auto class="img ornament1" src="{{ ornament1 | image_url: width: 60 }}" />
+            {%- endif -%}
+            {%- if ornament2 != blank -%}
+              <img loading="lazy" width=auto height=auto class="img ornament2" src="{{ ornament2 | image_url: width: 60 }}" />
+            {%- endif -%}
+          </label>
+          <div class="w__DiscountContent">
+            <div id="coupon-code" class="dn">{{ discount_code }}</div>
+            <button id="copy-button">{{ discount_code_text }}{{ discount_code }}</button>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        const couponText = document.getElementById('coupon-code');
+        const copyButton = document.getElementById('copy-button');
+      
+        copyButton.addEventListener('click', function() {
+            navigator.clipboard.writeText(couponText.textContent)
+            .then(() => {
+                copyButton.textContent = '{{ discount_copy_success_text }}';
+                setTimeout(() => {
+                    copyButton.textContent = '{{ discount_code_text }}{{ discount_code }}';
+                }, 1000);
+            })
+            .catch(err => {
+                console.error('Copied Failed：', err);
+            });
+        });
+      </script>
+    
+    {% endif %}
+    
+  {% endif %}
+{% endif %}

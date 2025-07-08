@@ -1,0 +1,1902 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_8KKtNU": {
+      "type": "slideshow",
+      "blocks": {
+        "slider_item_YipJd4": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/YN46_YN21_banner_PC_42208d58-8e94-4270-bd12-f64d719230ef.jpg",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "【10000+真实评价】【产科医生合作品牌】",
+            "heading": "第一次当妈妈？从这里开始",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "popup_button_label": "Creat Your List",
+            "popup_button_content": "Budget - List - Create",
+            "popup_button_style": false,
+            "content_alignment": "left",
+            "content_position": "bottom-left",
+            "content_width": "full_width",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 60,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center",
+            "content_position_mobile": "bottom-left-mobile"
+          }
+        },
+        "slider_item_jiLA39": {
+          "type": "slider_item",
+          "settings": {
+            "local_video": "shopify://files/videos/Momcozy Full Event RECAP_1080p.mp4",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/best-seller",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "popup_button_label": "",
+            "popup_button_content": "",
+            "popup_button_style": false,
+            "content_alignment": "center",
+            "content_position": "middle-center",
+            "content_width": "full_width",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 60,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center",
+            "content_position_mobile": "bottom-left-mobile"
+          }
+        },
+        "slider_item_tnXQhj": {
+          "type": "slider_item",
+          "settings": {
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeindown",
+            "subheading": "Subheading",
+            "heading": "Image slide",
+            "description": "<p>Tell your brand's story through images</p>",
+            "first_button_label": "Button label",
+            "first_button_link": "",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "popup_button_label": "",
+            "popup_button_content": "",
+            "popup_button_style": false,
+            "content_alignment": "left",
+            "content_position": "bottom-left",
+            "content_width": "container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 30,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "left",
+            "content_position_mobile": "bottom-left-mobile"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_YipJd4",
+        "slider_item_jiLA39",
+        "slider_item_tnXQhj"
+      ],
+      "custom_css": [
+        ".h-full_screen {--height-topbar: 41px;}"
+      ],
+      "settings": {
+        "section_width": "full_width",
+        "slide_height": "adapt",
+        "desktop_height": 800,
+        "mobile_height": 300,
+        "color_scheme": "scheme-c4fa9b2e-e94e-477a-a1f0-ab1da4f2a676",
+        "subheading_font_size": 16,
+        "subheading_font_weight": "subheading_weight",
+        "subheading_spacing_bottom": 0,
+        "heading_font_size": 48,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 12,
+        "des_font_size": 19,
+        "des_font_weight": "heading_weight",
+        "des_spacing_bottom": 60,
+        "slide_effect": "fade",
+        "show_arrow": true,
+        "carousel_pagination": "show_dots",
+        "pagination_position": "center",
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "content_below_image": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": true
+      }
+    },
+    "scrolling_text_U3mttg": {
+      "type": "scrolling-text",
+      "blocks": {
+        "scrolling_text_Bmp7bG": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/icon-_1_773ae2f0-9dcb-45c4-aeed-6e980ff43493.png",
+            "content": "全球300万妈妈信赖"
+          }
+        },
+        "scrolling_text_7defWk": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/title-icon_04.png",
+            "content": "2024母婴受欢迎品牌"
+          }
+        },
+        "scrolling_text_PtA9FE": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/app-icon_02_d.svg",
+            "content": "2024设计大奖"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_Bmp7bG",
+        "scrolling_text_7defWk",
+        "scrolling_text_PtA9FE"
+      ],
+      "settings": {
+        "section_width": "full_width",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "direction": "left",
+        "icon_between_item": "dot",
+        "speed": 18,
+        "space_between_text": 60,
+        "font_size": 22,
+        "font_weight": "subheading_weight",
+        "uppercase": false,
+        "use_heading_font": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "reset_spacing": true
+      }
+    },
+    "icon_box_YartwN": {
+      "type": "icon-box",
+      "blocks": {
+        "icon_box_K98Mqk": {
+          "type": "icon_box",
+          "settings": {
+            "icon_image": "shopify://shop_images/momcozy-_ICON_3-_ICON_26f6db4d-16e1-4b81-b557-4d6b43918b8b.png",
+            "icon_svg": "free_shipping",
+            "custom_svg": "",
+            "heading": "新手妈妈专区",
+            "description": "<p>分场景解决所有需求</p>"
+          }
+        },
+        "icon_box_4UxU9J": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "check_badge",
+            "custom_svg": "",
+            "heading": "经验妈妈专区",
+            "description": "<p>按需快速选购</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_K98Mqk",
+        "icon_box_4UxU9J"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "type": "default",
+        "column_gap": 30,
+        "icon_position": "top",
+        "icon_size": 45,
+        "spacing": 11,
+        "background": "linear-gradient(46deg, rgba(248, 248, 248, 1) 13%, rgba(248, 248, 248, 1) 86%)",
+        "enable_background": true,
+        "content_alignment": "center",
+        "heading_font_size": 16,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 10,
+        "des_font_size": 12,
+        "des_font_weight": "body_weight",
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "reset_spacing": true
+      }
+    },
+    "divider_MxP9f8": {
+      "type": "divider",
+      "disabled": true,
+      "settings": {
+        "section_width": "full_width",
+        "border_height": 1,
+        "border_color": "#ebebeb",
+        "reset_spacing": true
+      }
+    },
+    "ww_collection_multi_tabs_h44XH4": {
+      "type": "ww-collection-multi-tabs",
+      "blocks": {
+        "tab_parent_zp7y4j": {
+          "type": "tab_parent",
+          "settings": {
+            "tab_parent_title": "First-Time Mom"
+          }
+        },
+        "collection_kmMyFc": {
+          "type": "collection",
+          "settings": {
+            "collection": "breastfeeding-essentials",
+            "collection_title": "Feeding",
+            "collection_addons_list": [
+              "portable-milk-warmer-22oz-cooler-on-the-go-bundle",
+              "nutri-smart-baby-bottle-warmer-and-breastmilk-storage-bags",
+              "feeding-bundle-kleanpal-pro-baby-bottle-washer-dinerpal-high-chair"
+            ],
+            "collection_addons_title": "On-the-Go Feeding Bundle;;;Nutritional Care Bundle;;;Feeding Essentials Bundle",
+            "collection_addons_desc": "Heat, store & feed wherever life takes you;;;Warm, store & feed — with confidence every time;;;Smart cleaning & stress-free feeding in one set",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_7hXJ47": {
+          "type": "collection",
+          "settings": {
+            "collection": "electric-breast-pump",
+            "collection_title": "Pumping",
+            "collection_addons_list": [
+              "m5-bra-bundle-double-m5-wireless-hands-free-breast-pump-and-omni-brayn21",
+              "m5-massager-bundle-double-m5-wearable-breast-pump-and-double-breast-massager",
+              "m6-milk-cooler-bundle-m6-hands-free-breast-pump-and-breast-milk-cooler"
+            ],
+            "collection_addons_title": "M5 Bras Bundle;;;M5 Heat Bundle;;;M6 Cooler Bundle",
+            "collection_addons_desc": "Hands-free pumping meets all-day support;;;Soothe & pump with warming comfort;;;Pump & store — perfect for on-the-go moms",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_d6R3JU": {
+          "type": "collection",
+          "settings": {
+            "collection": "black-friday-maternity",
+            "collection_title": "Pregnancy",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_GLPK8Y": {
+          "type": "collection",
+          "settings": {
+            "collection": "nursing",
+            "collection_title": "Nursing",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_tXLkmh": {
+          "type": "collection",
+          "settings": {
+            "collection": "babycare-collection",
+            "collection_title": "Baby Care",
+            "collection_addons_list": [
+              "baby-care-bundle-smart-baby-sound-machine-and-dual-mode-baby-monitor-bm04",
+              "outing-bundle-momcozy-changego-baby-stroller-portable-sound-machine",
+              "momcozy-all-in-1-core-baby-kit-electric-baby-nail-file"
+            ],
+            "collection_addons_title": "Baby Care Bundle;;;Outing Bundle;;;Baby kit",
+            "collection_addons_desc": "Sleep & Safety, All in One;;;On-the-Go Calm for Every Stroll;;;Gentle Care, From Head to Tiny Toes",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_q9NyxW": {
+          "type": "collection",
+          "settings": {
+            "collection": "cozy-outing",
+            "collection_title": "On the Go",
+            "collection_addons_list": [
+              "baby-carrier-and-baby-bottle-warmer-for-travel-bundle",
+              "outing-bundle-momcozy-changego-baby-stroller-portable-sound-machine",
+              "postpartum-recovery-bundle-ergonest-belly-band-and-postpartum-belly-band"
+            ],
+            "collection_addons_title": "Baby Carrier Bundle;;;Outing Bunlde;;;Postpartum Recovery Bunlde",
+            "collection_addons_desc": "Comfortable Carry, Hands-Free Bonding;;;On-the-Go Calm for Every Stroll;;;Support Through Every Stage",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "tab_parent_XrnAac": {
+          "type": "tab_parent",
+          "settings": {
+            "tab_parent_title": "经验妈妈"
+          }
+        },
+        "collection_fD8yn9": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-bottle-cooler",
+            "collection_title": "",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_dqWztc": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-bottle-cooler",
+            "collection_title": "",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_CNcqFM": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-bottle-cooler",
+            "collection_title": "",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_parent_zp7y4j",
+        "collection_kmMyFc",
+        "collection_7hXJ47",
+        "collection_d6R3JU",
+        "collection_GLPK8Y",
+        "collection_tXLkmh",
+        "collection_q9NyxW",
+        "tab_parent_XrnAac",
+        "collection_fD8yn9",
+        "collection_dqWztc",
+        "collection_CNcqFM"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "heading": "",
+        "description": "<p>按角色 & 场景快速选购</p>",
+        "header_size": "medium",
+        "header_alignment": "left",
+        "vertical_tab_style": "fill",
+        "items_to_show": 8,
+        "items_per_row": 3,
+        "column_gap": 30,
+        "rows": 2,
+        "show_load_more_button": false,
+        "button_label": "Load more",
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": 2,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "reset_spacing": false
+      }
+    },
+    "ww_collection_tab_zk6EbD": {
+      "type": "ww-collection-tab",
+      "blocks": {
+        "collection_qrKBwU": {
+          "type": "collection",
+          "settings": {
+            "collection": "black-friday-maternity",
+            "collection_title": "孕期",
+            "collection_icon": "shopify://shop_images/icon-1.svg",
+            "collection_addons_list": [
+              "copy-of-baby-care-bundle-smart-baby-sound-machine-and-one-baby-monitor",
+              "baby-care-bundle-smart-baby-sound-machine-and-one-baby-monitor",
+              "baby-carrier-and-baby-bottle-warmer-for-travel-bundle"
+            ],
+            "collection_addons_title": "购买立省30美金;;;购买立省20美金;;;购买立省10美金",
+            "collection_addons_desc": "吸奶器 + 储奶袋 + 消毒器;;;吸奶器 + 储奶袋 + 消毒器;;;吸奶器 + 储奶袋 + 消毒器",
+            "collection_addons_link_1": "<a href=\"/pages/choose-your-breast-pump\" title=\"Choose Your Breast Pump\">哪一个吸奶器适合我？</a>",
+            "collection_addons_link_2": "<a href=\"/pages/choose-your-breast-pump\" title=\"Choose Your Breast Pump\">哪一个吸奶器适合我？</a>",
+            "collection_addons_link_3": "如何选择吸奶器容量？",
+            "collection_addons_link_4": "演示吸奶器使用"
+          }
+        },
+        "collection_X86FQt": {
+          "type": "collection",
+          "settings": {
+            "collection": "electric-breast-pump",
+            "collection_title": "吸奶",
+            "collection_icon": "shopify://shop_images/icon-1.svg",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_raakQ4": {
+          "type": "collection",
+          "settings": {
+            "collection": "nursing",
+            "collection_title": "储奶",
+            "collection_icon": "shopify://shop_images/icon-4.svg",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_n6U7DF": {
+          "type": "collection",
+          "settings": {
+            "collection": "nursing",
+            "collection_title": "喂养",
+            "collection_icon": "shopify://shop_images/icon-4.svg",
+            "collection_addons_list": [],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        },
+        "collection_gzpdLd": {
+          "type": "collection",
+          "settings": {
+            "collection": "nursing",
+            "collection_title": "清洁",
+            "collection_icon": "shopify://shop_images/icon-4.svg",
+            "collection_addons_list": [
+              "copy-of-baby-care-bundle-smart-baby-sound-machine-and-one-baby-monitor",
+              "baby-care-bundle-smart-baby-sound-machine-and-one-baby-monitor",
+              "baby-carrier-and-baby-bottle-warmer-for-travel-bundle"
+            ],
+            "collection_addons_title": "",
+            "collection_addons_desc": "",
+            "collection_addons_link_1": "",
+            "collection_addons_link_2": "",
+            "collection_addons_link_3": "",
+            "collection_addons_link_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_qrKBwU",
+        "collection_X86FQt",
+        "collection_raakQ4",
+        "collection_n6U7DF",
+        "collection_gzpdLd"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "heading": "按场景购齐所有需求",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "left",
+        "tab_header_style": "vertical",
+        "vertical_tab_style": "fill",
+        "items_to_show": 6,
+        "items_per_row": 4,
+        "column_gap": 30,
+        "rows": 1,
+        "show_load_more_button": true,
+        "button_label": "Load more",
+        "carousel_on_mobile": true,
+        "items_per_row_mobile": 1.5,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "reset_spacing": false
+      }
+    },
+    "collection_list_VmEYkJ": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_r7aTxN": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-products",
+            "collection_image": "shopify://shop_images/all.jpg",
+            "collection_title": "All Products",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_FUAzK4": {
+          "type": "collection",
+          "settings": {
+            "collection": "black-friday-maternity",
+            "collection_image": "shopify://shop_images/Maternity_Essentials_a03afebc-8dcc-49ca-8c29-3c4574e05128.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_kUA3MH": {
+          "type": "collection",
+          "settings": {
+            "collection": "electric-breast-pump",
+            "collection_image": "shopify://shop_images/Breast_Pumps.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_ctTBpd": {
+          "type": "collection",
+          "settings": {
+            "collection": "nursing",
+            "collection_image": "shopify://shop_images/Bras_78ea175a-f125-4705-a49b-4c2ac574ea94.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_TiJrkL": {
+          "type": "collection",
+          "settings": {
+            "collection": "breastfeeding-essentials",
+            "collection_image": "shopify://shop_images/b546c4f90da077ed4d3dbd75a2aee168.jpg",
+            "collection_title": "Feeding Gear",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_fyfMEN": {
+          "type": "collection",
+          "settings": {
+            "collection": "babycare-collection",
+            "collection_image": "shopify://shop_images/Baby_Care_cd586d7a-fcd1-4fe2-8926-6295bd957d7f.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_qdMHYe": {
+          "type": "collection",
+          "settings": {
+            "collection": "cozy-outing",
+            "collection_image": "shopify://shop_images/Cozy_Outing_e82a6604-7e36-42ea-a481-42546bf552f2.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_RdPBzX": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-safety",
+            "collection_image": "shopify://shop_images/new-monitor.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_b7nDxE": {
+          "type": "collection",
+          "settings": {
+            "collection": "sleep-time",
+            "collection_image": "shopify://shop_images/38fd9e81e7970c0c1b5b35377eab8b27_00a641e8-2187-49c7-9539-10ee2193cbcf.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_bhcVqm": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-bottle-warmer",
+            "collection_image": "shopify://shop_images/941299cf539e607f2d9b0e37a5f400a9_c909d5b3-ed6c-428a-abca-944621968c37.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        },
+        "collection_QEUEWN": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-stroller",
+            "collection_image": "shopify://shop_images/89a9e2caf1370f011fbb67ecec2a8232.jpg",
+            "collection_title": "",
+            "collection_desc": "",
+            "collection_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_r7aTxN",
+        "collection_FUAzK4",
+        "collection_kUA3MH",
+        "collection_ctTBpd",
+        "collection_TiJrkL",
+        "collection_fyfMEN",
+        "collection_qdMHYe",
+        "collection_RdPBzX",
+        "collection_b7nDxE",
+        "collection_bhcVqm",
+        "collection_QEUEWN"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "Smart Picks for Every Need",
+        "description": "",
+        "show_view_all_button": false,
+        "header_size": "medium",
+        "header_alignment": "center",
+        "display_mode": "carousel",
+        "image_ratio": "adapt",
+        "custom_ratio": "",
+        "items_per_row": 6,
+        "column_gap": 30,
+        "collection_information_position": "below_image",
+        "design": "default",
+        "text_alignment": "center",
+        "show_product_count": false,
+        "show_icon": false,
+        "show_description": false,
+        "font_size": 16,
+        "font_weight": "heading_weight",
+        "information_spacing": 12,
+        "rounded_image": true,
+        "image_custom_width": true,
+        "image_width": 185,
+        "show_arrow": false,
+        "carousel_pagination": "show_dots",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 3,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "multi_content_ww_T4HN4R": {
+      "type": "multi-content-ww",
+      "blocks": {
+        "text_yKRRi9": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "scheme-bb1431b0-be4a-4b03-a450-f572c07e3904",
+            "content_width": "33.3333%",
+            "content_width_m": "50%",
+            "vertical_align": "center",
+            "image_link": "",
+            "subheading": "",
+            "heading": "Zero Experience?",
+            "description": "<p>Shop with Total Peace of Mind</p>",
+            "collection": "",
+            "timer": "",
+            "expired_message": "Time expired",
+            "style": "default",
+            "font_size": 36,
+            "spacing_bottom": 30,
+            "first_button_label": "Learn more",
+            "first_button_link": "",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "center",
+            "subheading_font_size": 14,
+            "subheading_font_weight": "subheading_weight",
+            "subheading_spacing_bottom": 15,
+            "heading_font_size": 42,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 20,
+            "des_font_size": 14,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 30
+          }
+        },
+        "image_NanXUr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Expert_Headshot_Laura_Burgess_RN_IBCLC_Doula.jpg",
+            "image_behavior": "none",
+            "image_link": "",
+            "content_width": "20%",
+            "content_width_m": "50%",
+            "vertical_align": "center",
+            "order": ""
+          }
+        },
+        "image_eaDwdr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Expert_Headshot_Dr._Alex.jpg",
+            "image_behavior": "none",
+            "image_link": "",
+            "content_width": "20%",
+            "content_width_m": "50%",
+            "vertical_align": "center",
+            "order": ""
+          }
+        },
+        "image_wKWgqi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/What_Exams_For_a_Woman_Over_30_-_Momcozy_Blog.jpg",
+            "image_behavior": "none",
+            "image_link": "",
+            "content_width": "20%",
+            "content_width_m": "50%",
+            "vertical_align": "center",
+            "order": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_yKRRi9",
+        "image_NanXUr",
+        "image_eaDwdr",
+        "image_wKWgqi"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "scheme-bb1431b0-be4a-4b03-a450-f572c07e3904",
+        "additional_class": "justify-center align-center",
+        "heading": "",
+        "description": "",
+        "heading_flex": false,
+        "heading_width": 50,
+        "heading_width_m": 50,
+        "header_size": "medium",
+        "header_alignment": "center",
+        "column_gap": 15,
+        "color_scheme_header": "",
+        "content_background_color": "",
+        "header_button": "",
+        "header_url": "",
+        "header_html": "",
+        "equal_height_adjustment": true,
+        "carousel_enable": false,
+        "items_per_row": 3,
+        "items_per_row_mobile": 1,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "reset_spacing": false
+      }
+    },
+    "rich_text_kFw33b": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_irMqTY": {
+          "type": "heading",
+          "settings": {
+            "heading": "安心购：从零开始也不慌",
+            "font_size": 36,
+            "font_weight": "heading_weight",
+            "uppercase": false,
+            "spacing_bottom": 10
+          }
+        },
+        "description_yWxQPL": {
+          "type": "description",
+          "settings": {
+            "description": "<p>购物从未如此安心和新手友好</p>",
+            "font_size": 14,
+            "font_weight": "body_weight",
+            "spacing_bottom": 30
+          }
+        }
+      },
+      "block_order": [
+        "heading_irMqTY",
+        "description_yWxQPL"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "container",
+        "color_scheme": "scheme-bb1431b0-be4a-4b03-a450-f572c07e3904",
+        "content_alignment": "center",
+        "content_max_width": 100,
+        "enable_expand_content": false,
+        "expand_content_button": "See all Information",
+        "padding_top": 50,
+        "padding_bottom": 20,
+        "reset_spacing": false
+      }
+    },
+    "lookbook_product_NP9Tek": {
+      "type": "lookbook-product",
+      "blocks": {
+        "product_RHHTUr": {
+          "type": "product",
+          "settings": {
+            "product": "momcozy-mobile-style-hands-free-breast-pump",
+            "offset_top": 20,
+            "offset_left": 50
+          }
+        },
+        "product_3iFpPK": {
+          "type": "product",
+          "settings": {
+            "product": "ergonomic-cozy-and-lightweight-baby-carrier",
+            "offset_top": 30,
+            "offset_left": 10
+          }
+        },
+        "product_bfMtDx": {
+          "type": "product",
+          "settings": {
+            "product": "momcozy-cocosway-3d-motion-electric-baby-swing",
+            "offset_top": 87,
+            "offset_left": 50
+          }
+        }
+      },
+      "block_order": [
+        "product_RHHTUr",
+        "product_3iFpPK",
+        "product_bfMtDx"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "heading": "孕期好物推荐",
+        "description": "<p>来自女产科专家的建议</p>",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "lookbook_image_width": 35,
+        "items_per_row": 3,
+        "column_gap": 30,
+        "image": "shopify://shop_images/20240816-momcozy0098-12.jpg",
+        "image_ratio": "adapt",
+        "custom_ratio": "",
+        "position": "left",
+        "hotspot_style": "dot",
+        "content": "#f8f8f8",
+        "padding_top_content": 30,
+        "padding_bottom_content": 30,
+        "show_arrow": true,
+        "carousel_pagination": "show_progress_bar",
+        "infinite": false,
+        "autoplay": true,
+        "autorotate_speed": 5,
+        "items_per_row_mobile": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "reset_spacing": true
+      }
+    },
+    "icon_box_rpMiJg": {
+      "type": "icon-box",
+      "blocks": {
+        "icon_box_QAjJVK": {
+          "type": "icon_box",
+          "settings": {
+            "icon_image": "shopify://shop_images/momcozy-_ICON_3-_ICON_26f6db4d-16e1-4b81-b557-4d6b43918b8b.png",
+            "icon_svg": "free_shipping",
+            "custom_svg": "",
+            "heading": "孕期：1-12 周",
+            "description": "<p>推荐: 托腹带、孕妇枕、待产包</p>"
+          }
+        },
+        "icon_box_3eW6kX": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "check_badge",
+            "custom_svg": "",
+            "heading": "孕期：13-27 周",
+            "description": "<p>推荐 托腹带、孕妇枕、待产包</p>"
+          }
+        },
+        "icon_box_xep3Pa": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "message_communications",
+            "custom_svg": "",
+            "heading": "孕期：28-40 周",
+            "description": "<p>准备：吸奶器、清洗消毒机、宝宝纸尿裤</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_QAjJVK",
+        "icon_box_3eW6kX",
+        "icon_box_xep3Pa"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "scheme-3d10de96-a479-49bd-819c-e044746b4f3e",
+        "type": "default",
+        "column_gap": 30,
+        "icon_position": "left",
+        "icon_size": 45,
+        "spacing": 11,
+        "background": "linear-gradient(46deg, rgba(178, 122, 126, 1) 13%, rgba(106, 43, 58, 1) 86%)",
+        "enable_background": true,
+        "content_alignment": "left",
+        "heading_font_size": 16,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 10,
+        "des_font_size": 12,
+        "des_font_weight": "body_weight",
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "reset_spacing": true
+      }
+    },
+    "lookbook_image_9xciyg": {
+      "type": "lookbook-image",
+      "blocks": {
+        "lookbook_item_Y88Ecz": {
+          "type": "lookbook_item",
+          "settings": {
+            "lookbook_image": "shopify://shop_images/1-1_6e622775-a01c-4543-9757-f80099c4fe87.jpg",
+            "product__1": "1080p-full-hd-camera-for-video-baby-monitor",
+            "offset_top__1": 60,
+            "offset_left__1": 60,
+            "product__2": "",
+            "offset_top__2": 1,
+            "offset_left__2": 43,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "lookbook_item_d4hKJ8": {
+          "type": "lookbook_item",
+          "settings": {
+            "lookbook_image": "shopify://shop_images/infant-daily-schedule-2.jpg",
+            "product__1": "",
+            "offset_top__1": 12,
+            "offset_left__1": 32,
+            "product__2": "",
+            "offset_top__2": 1,
+            "offset_left__2": 43,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "lookbook_item_JUnD3k": {
+          "type": "lookbook_item",
+          "settings": {
+            "product__1": "",
+            "offset_top__1": 12,
+            "offset_left__1": 32,
+            "product__2": "",
+            "offset_top__2": 1,
+            "offset_left__2": 43,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "lookbook_item_g9LzkJ": {
+          "type": "lookbook_item",
+          "settings": {
+            "product__1": "",
+            "offset_top__1": 12,
+            "offset_left__1": 32,
+            "product__2": "",
+            "offset_top__2": 1,
+            "offset_left__2": 43,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "lookbook_item_VrBkKt": {
+          "type": "lookbook_item",
+          "settings": {
+            "product__1": "",
+            "offset_top__1": 12,
+            "offset_left__1": 32,
+            "product__2": "",
+            "offset_top__2": 1,
+            "offset_left__2": 43,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "lookbook_item_XthjcH": {
+          "type": "lookbook_item",
+          "settings": {
+            "product__1": "",
+            "offset_top__1": 12,
+            "offset_left__1": 32,
+            "product__2": "",
+            "offset_top__2": 1,
+            "offset_left__2": 43,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        }
+      },
+      "block_order": [
+        "lookbook_item_Y88Ecz",
+        "lookbook_item_d4hKJ8",
+        "lookbook_item_JUnD3k",
+        "lookbook_item_g9LzkJ",
+        "lookbook_item_VrBkKt",
+        "lookbook_item_XthjcH"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "left",
+        "image_ratio": "portrait",
+        "custom_ratio": "",
+        "hotspot_style": "plus",
+        "action_when_click_on_hotspot": "open",
+        "items_per_row": 4,
+        "column_gap": 30,
+        "show_arrow": true,
+        "carousel_pagination": "show_progress_bar",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 6,
+        "reveal": true,
+        "items_per_row_mobile": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "multi_content_ww_YBtYDa": {
+      "type": "multi-content-ww",
+      "blocks": {
+        "html_qWnTNT": {
+          "type": "html",
+          "settings": {
+            "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+            "content_width": "50%",
+            "content_width_m": "50%",
+            "html_content": "<h3 class=\"fs-24 mb-5\">Existing user renewal discount</h3>\n<p class=\"fs-15\"><strong>10% Off</strong> for Existing Users</p>\n<img class=\"\" src=\"https://cdn.shopify.com/s/files/1/0559/2321/2486/files/existing_user_renewal_discount.webp?v=1746676105\" alt=\"Existing user renewal discount\">",
+            "vertical_align": "start",
+            "padding": "px-30 pt-30",
+            "order": ""
+          }
+        },
+        "html_ALJrUh": {
+          "type": "html",
+          "settings": {
+            "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+            "content_width": "25%",
+            "content_width_m": "50%",
+            "html_content": "<h3 class=\"fs-24 mb-5\">Redeem Your Points for Exclusive Rewards</h3>\n<p class=\"fs-15\">Snag the Limited-Edition Collab Stroller</p>\n<img class=\"mt-50\" src=\"https://cdn.shopify.com/s/files/1/0559/2321/2486/files/28418A10-3457-4642-9246-2D1D48FB78AA.png?v=1746690505\" alt=\"Redeem Your Points for Exclusive Rewards\">",
+            "vertical_align": "start",
+            "padding": "px-30 py-30",
+            "order": ""
+          }
+        },
+        "html_pbcCRp": {
+          "type": "html",
+          "settings": {
+            "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+            "content_width": "25%",
+            "content_width_m": "50%",
+            "html_content": "<a class=\"flex flex-column align-center justify-between no-underline h-full\" href=\"#\">\n\t<h3 class=\"fs-24 w-full mb-5\">Quick Assistant within 24 Hours</h3>\n\t<img class=\"w-full\" src=\"https://cdn.shopify.com/s/files/1/0559/2321/2486/files/QuickAssistant_within24Hours.webp?v=1746676105\" alt=\"Redeem Your Points for Exclusive Rewards\">\n</a>",
+            "vertical_align": "start",
+            "padding": "px-30 pt-30",
+            "order": ""
+          }
+        }
+      },
+      "block_order": [
+        "html_qWnTNT",
+        "html_ALJrUh",
+        "html_pbcCRp"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "additional_class": "",
+        "heading": "Momcozy Circle Benefits",
+        "description": "",
+        "heading_flex": false,
+        "heading_width": 50,
+        "heading_width_m": 50,
+        "header_size": "medium",
+        "header_alignment": "left",
+        "column_gap": 30,
+        "color_scheme_header": "",
+        "content_background_color": "",
+        "header_button": "",
+        "header_url": "",
+        "header_html": "",
+        "equal_height_adjustment": true,
+        "carousel_enable": false,
+        "items_per_row": 3,
+        "items_per_row_mobile": 1,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "reset_spacing": true
+      }
+    },
+    "icon_box_TRwJBD": {
+      "type": "icon-box",
+      "blocks": {
+        "icon_box_ACjiqA": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "free_shipping",
+            "custom_svg": "<svg width=\"34\" height=\"35\" viewbox=\"0 0 34 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M16.7997 20.0187H18.1997C19.7397 20.0187 20.9997 18.7587 20.9997 17.2187V3.21875H8.39966C6.29966 3.21875 4.46567 4.38074 3.51367 6.08874\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.80078 24.2219C2.80078 26.5459 4.67678 28.4219 7.00078 28.4219H8.40078C8.40078 26.8819 9.66078 25.6219 11.2008 25.6219C12.7408 25.6219 14.0008 26.8819 14.0008 28.4219H19.6008C19.6008 26.8819 20.8608 25.6219 22.4008 25.6219C23.9408 25.6219 25.2008 26.8819 25.2008 28.4219H26.6008C28.9248 28.4219 30.8008 26.5459 30.8008 24.2219V20.0219H26.6008C25.8308 20.0219 25.2008 19.3919 25.2008 18.6219V14.4219C25.2008 13.6519 25.8308 13.0219 26.6008 13.0219H28.4068L26.0128 8.83589C25.5088 7.96789 24.5848 7.42188 23.5768 7.42188H21.0008V17.2219C21.0008 18.7619 19.7408 20.0219 18.2008 20.0219H16.8008\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M11.2004 31.2172C12.7468 31.2172 14.0004 29.9636 14.0004 28.4172C14.0004 26.8707 12.7468 25.6172 11.2004 25.6172C9.65399 25.6172 8.40039 26.8707 8.40039 28.4172C8.40039 29.9636 9.65399 31.2172 11.2004 31.2172Z\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M22.4016 31.2172C23.948 31.2172 25.2016 29.9636 25.2016 28.4172C25.2016 26.8707 23.948 25.6172 22.4016 25.6172C20.8551 25.6172 19.6016 26.8707 19.6016 28.4172C19.6016 29.9636 20.8551 31.2172 22.4016 31.2172Z\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M30.8012 17.2156V20.0156H26.6012C25.8312 20.0156 25.2012 19.3856 25.2012 18.6156V14.4156C25.2012 13.6456 25.8312 13.0156 26.6012 13.0156H28.4072L30.8012 17.2156Z\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.80078 11.6172H11.2008\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.80078 15.8203H8.40078\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M2.80078 20.0156H5.60078\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "heading": "Free Shipping",
+            "description": "<p>Fast shipping on orders over $25 USD</p>"
+          }
+        },
+        "icon_box_RLNr9a": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "check_badge",
+            "custom_svg": "<svg width=\"34\" height=\"35\" viewbox=\"0 0 34 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M13.5508 19.6687C13.5508 21.0267 14.6008 22.1187 15.8888 22.1187H18.5208C19.6408 22.1187 20.5508 21.1667 20.5508 19.9767C20.5508 18.7027 19.9908 18.2407 19.1648 17.9467L14.9508 16.4767C14.1248 16.1827 13.5648 15.7347 13.5648 14.4467C13.5648 13.2707 14.4748 12.3047 15.5948 12.3047H18.2268C19.5148 12.3047 20.5648 13.3967 20.5648 14.7547\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M17.0508 10.9219V23.5219\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M31.0508 17.2187C31.0508 24.9467 24.7788 31.2187 17.0508 31.2187C9.32278 31.2187 3.05078 24.9467 3.05078 17.2187C3.05078 9.49075 9.32278 3.21875 17.0508 3.21875\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M24.0508 4.61719V10.2172H29.6508\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M31.0508 3.21875L24.0508 10.2187\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "heading": "30 Days Guarantee",
+            "description": "<p>30-days risk-free return & 30-days exchange policy*</p>"
+          }
+        },
+        "icon_box_UXBtz6": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "blossom",
+            "custom_svg": "<svg width=\"35\" height=\"35\" viewbox=\"0 0 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M31.3 21.4219C31.3 26.8399 26.918 31.2219 21.5 31.2219L22.97 28.7719\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.30078 13.0187C3.30078 7.60075 7.68278 3.21875 13.1008 3.21875L11.6308 5.66875\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M19.6797 6.65625L25.2515 9.87624L30.7675 6.67026\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M25.252 15.5714V9.85938\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M23.9355 3.51275L20.5755 5.37469C19.8195 5.79469 19.1895 6.85868 19.1895 7.72668V11.2827C19.1895 12.1507 19.8055 13.2147 20.5755 13.6347L23.9355 15.4968C24.6495 15.9028 25.8255 15.9028 26.5535 15.4968L29.9135 13.6347C30.6695 13.2147 31.2995 12.1507 31.2995 11.2827V7.72668C31.2995 6.85868 30.6835 5.79469 29.9135 5.37469L26.5535 3.51275C25.8395 3.12075 24.6635 3.12075 23.9355 3.51275Z\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M3.79102 22.0547L9.34902 25.2745L14.879 22.0687\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M9.34961 30.9698V25.2578\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M8.04678 18.9112L4.6868 20.7732C3.9308 21.1932 3.30078 22.257 3.30078 23.125V26.6812C3.30078 27.5492 3.9168 28.6132 4.6868 29.0332L8.04678 30.8952C8.76078 31.3012 9.93677 31.3012 10.6648 30.8952L14.0248 29.0332C14.7808 28.6132 15.4108 27.5492 15.4108 26.6812V23.125C15.4108 22.257 14.7948 21.1932 14.0248 20.7732L10.6648 18.9112C9.93677 18.5192 8.76078 18.5192 8.04678 18.9112Z\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "heading": "1 Year Warranty",
+            "description": "<p>At least 1 year* <a href=\"https://momcozy.com/pages/warranty-policy\" target=\"_blank\" title=\"https://momcozy.com/pages/warranty-policy\">Warranty Guarantee Policy</a></p>"
+          }
+        },
+        "icon_box_tj4DJd": {
+          "type": "icon_box",
+          "settings": {
+            "icon_svg": "message_communications",
+            "custom_svg": "<svg width=\"25\" height=\"25\" viewbox=\"0 0 25 25\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_2200_2954)\">\n<path d=\"M12.75 26.2187C20.4819 26.2187 26.75 19.9507 26.75 12.2187C26.75 4.48676 20.4819 -1.78125 12.75 -1.78125C5.01801 -1.78125 -1.25 4.48676 -1.25 12.2187C-1.25 19.9507 5.01801 26.2187 12.75 26.2187Z\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M7.14945 -0.382812H8.54945C5.81945 7.79319 5.81945 16.6412 8.54945 24.8172H7.14945\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M16.9492 -0.382812C19.6792 7.79319 19.6792 16.6412 16.9492 24.8172\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M0.150391 17.8219V16.4219C8.32639 19.1519 17.1744 19.1519 25.3504 16.4219V17.8219\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<path d=\"M0.150391 8.02406C8.32639 5.29406 17.1744 5.29406 25.3504 8.02406\" stroke=\"#202025\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2200_2954\">\n<rect width=\"24\" height=\"24\" fill=\"white\" transform=\"translate(0.75 0.21875)\"></rect>\n</clippath>\n</defs>\n</svg>",
+            "heading": "Worldwide delivery",
+            "description": "<p>Fast delivery worldwide</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_ACjiqA",
+        "icon_box_RLNr9a",
+        "icon_box_UXBtz6",
+        "icon_box_tj4DJd"
+      ],
+      "custom_css": [
+        "icon-box.grid {border: 1px solid var(--border-color-base); padding: 30px 15px; border-radius: var(--grid-radius);}"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "type": "default",
+        "column_gap": 30,
+        "icon_position": "left",
+        "icon_size": 42,
+        "spacing": 15,
+        "background": "",
+        "enable_background": false,
+        "content_alignment": "left",
+        "heading_font_size": 16,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 5,
+        "des_font_size": 12,
+        "des_font_weight": "body_weight",
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "reset_spacing": true
+      }
+    },
+    "product_bundle_PEikUk": {
+      "type": "product-bundle",
+      "blocks": {
+        "product_discount_EFbdRD": {
+          "type": "product_discount",
+          "settings": {
+            "collection": "nursing",
+            "products": [],
+            "items_to_show": 8,
+            "items_per_row": 3,
+            "column_gap": 30,
+            "carousel_on_mobile": true,
+            "items_per_row_mobile": 1.5
+          }
+        },
+        "your_bundle_PXKzAr": {
+          "type": "your_bundle",
+          "settings": {
+            "heading": "Bundle Contents",
+            "description": "<p>Add at <strong>least 3</strong> products and <strong>Save 30%.</strong></p>",
+            "heading_font_size": 24,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 20,
+            "des_font_size": 15,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 30
+          }
+        }
+      },
+      "block_order": [
+        "product_discount_EFbdRD",
+        "your_bundle_PXKzAr"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "Buy More Save More",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "left",
+        "minimum": 2,
+        "maximum": 5,
+        "enable_quantity": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "divider_FcGgzn": {
+      "type": "divider",
+      "settings": {
+        "section_width": "full_width",
+        "border_height": 1,
+        "border_color": "#ebebeb",
+        "reset_spacing": false
+      }
+    },
+    "products_deal_AXeN6n": {
+      "type": "products-deal",
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "Flash SALE",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "show_view_all_button": true,
+        "messages": "Hurry up! Offer ends in:",
+        "end_time": "05-06-2025",
+        "timer_style": "highlight",
+        "collection": "bundle-sale-for-coupon-only",
+        "items_to_show": 8,
+        "items_per_row": 4,
+        "column_gap": 30,
+        "show_arrow": true,
+        "carousel_pagination": "show_progress_bar",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "divider_xPQYgr": {
+      "type": "divider",
+      "settings": {
+        "section_width": "full_width",
+        "border_height": 1,
+        "border_color": "#ebebeb",
+        "reset_spacing": false
+      }
+    },
+    "multi_content_ww_e99DWY": {
+      "type": "multi-content-ww",
+      "blocks": {
+        "image_with_text_below_Ub4Ym3": {
+          "type": "image_with_text_below",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "content_width": "33.3333%",
+            "content_width_m": "50%",
+            "vertical_align": "start",
+            "image": "shopify://shop_images/big-events-new-pic_1.jpg",
+            "image_behavior": "none",
+            "image_link": "",
+            "subheading": "",
+            "heading": "Text below",
+            "description": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "first_button_label": "Button label",
+            "first_button_link": "",
+            "first_button_type": "link",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "left",
+            "spacing_top": 25,
+            "spacing_bottom": 0,
+            "content_padding_inline": 0,
+            "subheading_font_size": 12,
+            "subheading_font_weight": "subheading_weight",
+            "subheading_spacing_bottom": 15,
+            "heading_font_size": 18,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 15,
+            "des_font_size": 14,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 20
+          }
+        },
+        "image_with_text_below_EW6iUG": {
+          "type": "image_with_text_below",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "content_width": "33.3333%",
+            "content_width_m": "50%",
+            "vertical_align": "start",
+            "image": "shopify://shop_images/big-events-new-pic_3.jpg",
+            "mobile_image": "shopify://shop_images/Big_Events-3.jpg",
+            "image_behavior": "none",
+            "image_link": "",
+            "subheading": "",
+            "heading": "Text below",
+            "description": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "first_button_label": "Button label",
+            "first_button_link": "",
+            "first_button_type": "link",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "left",
+            "spacing_top": 25,
+            "spacing_bottom": 0,
+            "content_padding_inline": 0,
+            "subheading_font_size": 12,
+            "subheading_font_weight": "subheading_weight",
+            "subheading_spacing_bottom": 15,
+            "heading_font_size": 18,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 15,
+            "des_font_size": 14,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 20
+          }
+        },
+        "image_with_text_below_e4TCYa": {
+          "type": "image_with_text_below",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "content_width": "33.3333%",
+            "content_width_m": "50%",
+            "vertical_align": "start",
+            "image": "shopify://shop_images/Big_Events-2.jpg",
+            "image_behavior": "none",
+            "image_link": "",
+            "subheading": "",
+            "heading": "Text below",
+            "description": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "first_button_label": "Button label",
+            "first_button_link": "",
+            "first_button_type": "link",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "left",
+            "spacing_top": 25,
+            "spacing_bottom": 0,
+            "content_padding_inline": 0,
+            "subheading_font_size": 12,
+            "subheading_font_weight": "subheading_weight",
+            "subheading_spacing_bottom": 15,
+            "heading_font_size": 18,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 15,
+            "des_font_size": 14,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_below_Ub4Ym3",
+        "image_with_text_below_EW6iUG",
+        "image_with_text_below_e4TCYa"
+      ],
+      "settings": {
+        "section_width": "stretch_width",
+        "color_scheme": "",
+        "additional_class": "",
+        "heading": "大事件",
+        "description": "",
+        "heading_flex": true,
+        "heading_width": 30,
+        "heading_width_m": 50,
+        "header_size": "medium",
+        "header_alignment": "center",
+        "column_gap": 30,
+        "color_scheme_header": "scheme-bb1431b0-be4a-4b03-a450-f572c07e3904",
+        "content_background_color": "",
+        "header_button": "GO TO MOMCOZY",
+        "header_url": "#",
+        "header_html": "<img src=\"https://cdn.shopify.com/s/files/1/0559/2321/2486/files/big_event_addons.webp?v=1747974023\" style=\"max-width:200px\">",
+        "equal_height_adjustment": false,
+        "carousel_enable": true,
+        "items_per_row": 2.5,
+        "items_per_row_mobile": 1.5,
+        "show_arrow": true,
+        "carousel_pagination": "show_progress_bar",
+        "infinite": true,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "brand_logo_tPecTj": {
+      "type": "brand-logo",
+      "blocks": {
+        "brand_items_FqT37W": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO3_2023_BMC_Top_Choice.png",
+            "link": ""
+          }
+        },
+        "brand_items_kQWWJt": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO18_MFM_Awards24_Logo_Gold_250x250_936dec5e-67cf-4b39-8c8d-46335d0bbeb6.png",
+            "link": ""
+          }
+        },
+        "brand_items_YPktYx": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO8_bb-awards-logo-gold.png",
+            "link": ""
+          }
+        },
+        "brand_items_4H637p": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO6_2024_WINNER_PNG_transparent.png",
+            "link": ""
+          }
+        },
+        "brand_items_Wdzfjj": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO23.png",
+            "link": ""
+          }
+        },
+        "brand_items_6rpw3D": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO16_MCA_Logo.png",
+            "link": ""
+          }
+        },
+        "brand_items_dTGpmc": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO15_M_B-2024-shortlist.png",
+            "link": ""
+          }
+        },
+        "brand_items_zT3QaE": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO7.png",
+            "link": ""
+          }
+        },
+        "brand_items_94BgjV": {
+          "type": "brand_items",
+          "settings": {
+            "image": "shopify://shop_images/LOGO7.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_items_FqT37W",
+        "brand_items_kQWWJt",
+        "brand_items_YPktYx",
+        "brand_items_4H637p",
+        "brand_items_Wdzfjj",
+        "brand_items_6rpw3D",
+        "brand_items_dTGpmc",
+        "brand_items_zT3QaE",
+        "brand_items_94BgjV"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "heading": "",
+        "description": "",
+        "show_view_all_button": false,
+        "view_all_button_link": "",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "image_ratio": "square",
+        "custom_ratio": "",
+        "img_width": 300,
+        "logo_opacity": 100,
+        "open_link_newtab": true,
+        "framed": false,
+        "items_per_row": 8.5,
+        "column_gap": 30,
+        "show_arrow": true,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": true,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 3.5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "rich_text_EcBgbR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_j3PNaT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hello! Everyday for Women's",
+            "font_size": 36,
+            "font_weight": "heading_weight",
+            "uppercase": false,
+            "spacing_bottom": 24
+          }
+        },
+        "description_P9ehdd": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Discover a collection of timeless wardrobe essentials, seamlessly transitioning from work to weekend. Inspired by travel, our America-designed pieces prioritize sustainability with natural fibers and mindful practices. Explore a range of <span style=\"text-decoration:underline\"><strong>tops</strong></span>, <span style=\"text-decoration:underline\"><strong>bottoms</strong></span>, <span style=\"text-decoration:underline\"><strong>sweaters</strong></span>, and accessories in versatile styles, featuring high-quality materials like cotton, linen, tencel, and wool. </p><p>Each piece is crafted with meticulous attention to detail, ensuring a perfect blend of comfort and elegance. Our designs emphasize clean lines and sophisticated silhouettes, making them suitable for any occasion. Whether you’re dressing up for a night out or keeping it casual, our collection offers endless styling possibilities. Embrace the essence of effortless chic with our thoughtfully designed wardrobe staples, and experience the harmony of style, quality, and sustainability. Join us in redefining modern fashion with a conscience.</p>",
+            "font_size": 15,
+            "font_weight": "body_weight",
+            "spacing_bottom": 10
+          }
+        }
+      },
+      "block_order": [
+        "heading_j3PNaT",
+        "description_P9ehdd"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "content_max_width": 77,
+        "enable_expand_content": true,
+        "expand_content_button": "See all Information",
+        "content_max_height": 150,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "instagram_shop_nrVWcV": {
+      "type": "instagram-shop",
+      "blocks": {
+        "instagram_manual_upload_WnPgR7": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/1-banner-1_efe882d5-d5e3-4b30-a2ed-a7f15ebeda0e.png",
+            "more_info": "<p>We're totally smitten over this look! will you be creating a red or pink makeup look for valentine's day?</p><p>#cotton #glozin #trending #sale</p>",
+            "instagram_post_name": "Momcozy",
+            "link": "shopify://products/3-in-1-flexistyle-convertible-everyday-bra",
+            "product__1": "1080p-full-hd-camera-for-video-baby-monitor-bm03",
+            "offset_top__1": 55,
+            "offset_left__1": 8,
+            "product__2": "24mm-27mm-shield-flange-for-s12-pro-wearable-pump",
+            "offset_top__2": 75,
+            "offset_left__2": 74,
+            "product__3": "momcozy-3-in-1-kneading-lactation-massager",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "instagram_manual_upload_HNfRyy": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "more_info": "<p>We're totally smitten over this look! will you be creating a red or pink makeup look for valentine's day? </p><p>#cotton #glozin #trending #sale</p>",
+            "instagram_post_name": "glozin_store",
+            "link": "https://www.instagram.com/p/C8MFsIuv8G6/?next=%2F&img_index=2",
+            "product__1": "balloon-sleeve-blouse-square-neck",
+            "offset_top__1": 90,
+            "offset_left__1": 5,
+            "product__2": "cotton-long-sleeve-crop-t-shirt",
+            "offset_top__2": 32,
+            "offset_left__2": 97,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "instagram_manual_upload_XHACUJ": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "more_info": "<p>We're totally smitten over this look! will you be creating a red or pink makeup look for valentine's day?</p><p>#cotton #glozin #trending #sale</p>",
+            "instagram_post_name": "glozin_store",
+            "link": "https://www.instagram.com/p/C8MFsIuv8G6/?next=%2F&img_index=5",
+            "product__1": "vital-seamless-high-neck-top",
+            "offset_top__1": 20,
+            "offset_left__1": 20,
+            "product__2": "crossover-short-sleeve-crop-top",
+            "offset_top__2": 80,
+            "offset_left__2": 90,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "instagram_manual_upload_iHBcAC": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "more_info": "<p>We're totally smitten over this look! will you be creating a red or pink makeup look for valentine's day?</p><p>#cotton #glozin #trending #sale</p>",
+            "instagram_post_name": "glozin_store",
+            "link": "https://www.instagram.com/p/C8MFsIuv8G6/?next=%2F&img_index=4",
+            "product__1": "plain-cotton-undershirt-wide-neck",
+            "offset_top__1": 75,
+            "offset_left__1": 27,
+            "product__2": "braid-detailed-sleeveless-flow-top",
+            "offset_top__2": 90,
+            "offset_left__2": 22,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "instagram_manual_upload_ficYJ9": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "more_info": "<p>We're totally smitten over this look! will you be creating a red or pink makeup look for valentine's day?</p><p>#cotton #glozin #trending #sale</p>",
+            "instagram_post_name": "glozin_store",
+            "link": "https://www.instagram.com/p/C8MFsIuv8G6/?next=%2F&img_index=1",
+            "product__1": "short-fit-sporty-round-neck-t-shirt",
+            "offset_top__1": 87,
+            "offset_left__1": 45,
+            "product__2": "plain-cotton-undershirt-wide-neck",
+            "offset_top__2": 32,
+            "offset_left__2": 100,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        },
+        "instagram_manual_upload_iWGFPW": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "more_info": "<p>We're totally smitten over this look! will you be creating a red or pink makeup look for valentine's day?</p><p>#cotton #glozin #trending #sale</p>",
+            "instagram_post_name": "glozin_store",
+            "link": "https://www.instagram.com/p/C8MFsIuv8G6/?next=%2F&img_index=3",
+            "product__1": "plain-cotton-undershirt-wide-neck",
+            "offset_top__1": 78,
+            "offset_left__1": 32,
+            "product__2": "adjustable-minimalist-leather-bag",
+            "offset_top__2": 95,
+            "offset_left__2": 80,
+            "product__3": "",
+            "offset_top__3": 10,
+            "offset_left__3": 40,
+            "product__4": "",
+            "offset_top__4": 60,
+            "offset_left__4": 70,
+            "product__5": "",
+            "offset_top__5": 1,
+            "offset_left__5": 4
+          }
+        }
+      },
+      "block_order": [
+        "instagram_manual_upload_WnPgR7",
+        "instagram_manual_upload_HNfRyy",
+        "instagram_manual_upload_XHACUJ",
+        "instagram_manual_upload_iHBcAC",
+        "instagram_manual_upload_ficYJ9",
+        "instagram_manual_upload_iWGFPW"
+      ],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "Shop by Gram",
+        "description": "<p>Inspire and let yourself be inspired, from one unique fashion to another.</p>",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "image_ratio": "square",
+        "custom_ratio": "",
+        "hotspot_style": "plus",
+        "items_per_row": 6,
+        "column_gap": 10,
+        "show_arrow": true,
+        "carousel_pagination": "show_dots_on_mobile",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 2,
+        "padding_top": 0,
+        "padding_bottom": 10,
+        "reset_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_8KKtNU",
+    "scrolling_text_U3mttg",
+    "icon_box_YartwN",
+    "divider_MxP9f8",
+    "ww_collection_multi_tabs_h44XH4",
+    "ww_collection_tab_zk6EbD",
+    "collection_list_VmEYkJ",
+    "multi_content_ww_T4HN4R",
+    "rich_text_kFw33b",
+    "lookbook_product_NP9Tek",
+    "icon_box_rpMiJg",
+    "lookbook_image_9xciyg",
+    "multi_content_ww_YBtYDa",
+    "icon_box_TRwJBD",
+    "product_bundle_PEikUk",
+    "divider_FcGgzn",
+    "products_deal_AXeN6n",
+    "divider_xPQYgr",
+    "multi_content_ww_e99DWY",
+    "brand_logo_tPecTj",
+    "rich_text_EcBgbR",
+    "instagram_shop_nrVWcV"
+  ]
+}

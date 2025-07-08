@@ -1,0 +1,537 @@
+{%- liquid
+  assign section_st = section.settings
+  assign menu_type = menu_type
+-%}
+{% liquid
+  assign enable_rtl = settings.rtl
+  assign iso_code = request.locale.iso_code
+  assign lis_language_rtl = settings.language_rtl
+  if lis_language_rtl != blank
+    if lis_language_rtl contains iso_code
+      assign enable_rtl = true
+    else
+      assign enable_rtl = false
+    endif
+  endif
+%}
+{% if link.links.size > 0 %}
+  {% liquid
+    assign has_third_level = false
+    for child_link in link.links
+      if child_link.links.size > 0
+        assign has_third_level = true
+        break
+      endif
+    endfor
+  %}
+  {% if has_third_level == false and menu_type != 'dropdown' %}
+    <div class="hidden block-1025 px-30 mb-10 menu-title-wrapper">
+      <span class="fs-custom heading-style" style="--font-size: 20; bold">{{ link.title }}</span>
+    </div>
+  {% endif %}
+  <ul
+    class="subchildmenu list-unstyled px-30{% if menu_type != 'dropdown' and has_third_level != false %} grid grid-cols gap{% endif %}{% if has_third_level == false %} menu-list no-third-level-menu{% endif %}"
+  >
+    {% if only_for_domain == true %}
+      {% for child_link in link.links %}
+        {% for grandchild_link in child_link.links %}
+          <li class="menu-link level-1 {% if only_for_domain == true %} block hidden-1025 {% endif %}">
+            <menu-item class="relative static-1025 flex justify-between align-center border-bottom border-bottom-1025-0">
+              <a
+                class="menu_item-link  no-underline  py-10 py-1025-5 min-h-55 min-h-1025-unset inline-flex align-center"
+                href="{{ grandchild_link.url }}"
+              >
+                {% liquid
+                  assign label_setting = ''
+                  assign show_label = false
+
+                  if grandchild_link.title contains '[hot]'
+                    assign label_setting = label_setting | append: 'hot'
+                    assign show_label = true
+                  endif
+
+                  if grandchild_link.title contains '[new]'
+                    assign label_setting = label_setting | append: 'new'
+                    assign show_label = true
+                  endif
+
+                  if grandchild_link.title contains '[sale]'
+                    assign label_setting = label_setting | append: 'sale'
+                    assign show_label = true
+                  endif
+
+                  if grandchild_link.title contains '[popular]'
+                    assign label_setting = label_setting | append: 'popular'
+                    assign show_label = true
+                  endif
+
+                  if grandchild_link.title contains '[coming soon]' and only_for_domain == true
+                    assign label_setting = label_setting | append: 'coming_soon'
+                    assign show_label = true
+                  endif
+
+                  assign child_link_title = grandchild_link.title
+                  assign clean_title = child_link_title
+                  assign clean_title = clean_title | replace: '[hot]', ''
+                  assign clean_title = clean_title | replace: '[new]', ''
+                  assign clean_title = clean_title | replace: '[sale]', ''
+                  assign clean_title = clean_title | replace: '[popular]', ''
+                  assign clean_title = clean_title | replace: '[coming soon]', ''
+                  assign clean_title = clean_title | strip
+                %}
+                <span class="{% if child_link.links.size == 0 %}smooth-padding-hover transition{% endif %}">
+                  {{- clean_title -}}
+                </span>
+                {% if show_label %}
+                  <span class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap uppercase  {{ label_setting }}">
+                    {% if label_setting == 'coming_soon' and only_for_domain == true %}
+                      coming soon
+                    {% else %}
+                      {{- section_st[label_setting] -}}
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </a>
+            </menu-item>
+          </li>
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+
+
+    {% comment %} 用于存储已经放置了卡片/按钮的菜单项，防止重复放置 {% endcomment %}
+    {% assign placed_cards = '' %}
+    {% assign placed_buttons = '' %}
+
+    {% for child_link in link.links %}
+      <li class="menu-link level-1 {% if only_for_domain == true %} hidden block-1025 {% endif %}">
+        <menu-item class="relative static-1025 flex justify-between align-center border-bottom border-bottom-1025-0">
+          <a
+            class="menu_item-link {% if only_for_domain == true %}  hidden-important {% endif %}  no-underline{% if menu_type != 'dropdown' %} heading-style{% endif %} py-10 py-1025-5 min-h-55 min-h-1025-unset inline-flex align-center"
+            href="{{ child_link.url }}"
+          >
+            {% liquid
+              assign child_link_title = child_link.title
+              assign clean_title = child_link_title
+              assign clean_title = clean_title | replace: '[hot]', ''
+              assign clean_title = clean_title | replace: '[new]', ''
+              assign clean_title = clean_title | replace: '[sale]', ''
+              assign clean_title = clean_title | replace: '[popular]', ''
+              assign clean_title = clean_title | replace: '[coming soon]', ''
+              assign clean_title = clean_title | strip
+              
+              assign label_setting = ''
+              assign show_label = false
+
+              if child_link.title contains '[hot]'
+                assign label_setting = label_setting | append: 'hot'
+                assign show_label = true
+              endif
+
+              if child_link.title contains '[new]'
+                assign label_setting = label_setting | append: 'new'
+                assign show_label = true
+              endif
+
+              if child_link.title contains '[sale]'
+                assign label_setting = label_setting | append: 'sale'
+                assign show_label = true
+              endif
+
+              if child_link.title contains '[popular]'
+                assign label_setting = label_setting | append: 'popular'
+                assign show_label = true
+              endif
+
+              if child_link.title contains '[coming soon]' and only_for_domain == true
+                assign label_setting = label_setting | append: 'coming_soon'
+                assign show_label = true
+              endif
+              
+              assign custom_label_text = ''
+              assign custom_label_found = false
+              assign label_text_color = ''
+              assign label_bg_color = ''
+              
+              if label_map != blank
+                assign label_entries = label_map | split: '@@'
+                for entry in label_entries
+                  if entry != blank
+                    assign parts = entry | split: '##'
+                    if parts.size > 1
+                      assign match_text = parts[0] | strip
+                      if match_text == clean_title
+                        assign label_info = parts[1] | strip
+                        assign info_parts = label_info | split: '|'
+                        if info_parts.size >= 3
+                          assign custom_label_text = info_parts[0]
+                          assign label_text_color = info_parts[1]
+                          assign label_bg_color = info_parts[2]
+                          assign custom_label_found = true
+                          assign show_label = true
+                        endif
+                      endif
+                    endif
+                  endif
+                endfor
+              endif
+            %}
+            <span class="{% if child_link.links.size == 0 %}reversed-links transition{% endif %}">
+              {{- clean_title -}}
+            </span>
+            {% if show_label %}
+              {% if custom_label_found and label_map != blank %}
+                {% liquid
+                  assign text_color_value = label_text_color
+                  assign bg_color_value = label_bg_color
+                  
+                  if label_text_color contains 'preset_color'
+                    assign preset_number = label_text_color | replace: 'preset_color', '' | plus: 0
+                    assign setting_name = 'custom_label_color' | append: preset_number
+                    assign text_color_value = section.settings[setting_name]
+                  endif
+
+                  if label_bg_color contains 'preset_color'
+                    assign preset_number = label_bg_color | replace: 'preset_color', '' | plus: 0
+                    assign setting_name = 'custom_label_color' | append: preset_number
+                    assign bg_color_value = section.settings[setting_name]
+                  endif
+                %}
+                <span 
+                  class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap"
+                  style="color: {{ text_color_value }}; background-color: {{ bg_color_value }}; --menu-label-bg: {{ bg_color_value }};"
+                >
+                  {{ custom_label_text }}
+                </span>
+                <span class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap uppercase hidden-1025 {{ label_setting }}">
+                  {% if label_setting == 'coming_soon' and only_for_domain == true %}
+                    coming soon
+                  {% else %}
+                    {{- section_st[label_setting] -}}
+                  {% endif %}
+                </span>
+              {% else %}
+                <span class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap uppercase {{ label_setting }}">
+                  {% if label_setting == 'coming_soon' and only_for_domain == true %}
+                    coming soon
+                  {% else %}
+                    {{- section_st[label_setting] -}}
+                  {% endif %}
+                </span>
+              {% endif %}
+            {% endif %}
+          </a>
+          {%- if child_link.links.size > 0 -%}
+            <open-children-toggle class="inline-flex ms-5 flex-end align-center pointer{% if menu_type != 'dropdown' %} hidden-1025{% endif %}{% if enable_rtl %} left-0 left-1025-15{% else %} right-1025-15 right-0{% endif %}{% if section_st.redirect_to_link == blank %} absolute w-full w-1025-auto inset-y-0 static-1025{% else %} w-30 h-30 content-center{% endif %}">
+              {% if enable_rtl %}
+                <svg width="6" height="11" fill="none">
+                  <use href="#icon-back" />
+                </svg>
+              {% else %}
+                <svg width="6" height="11" fill="none">
+                  <use href="#icon-next" />
+                </svg>
+              {% endif %}
+            </open-children-toggle>
+          {%- endif -%}
+        </menu-item>
+        {% if child_link.links.size > 0 %}
+          <ul class="sub-children-menu{% if menu_type == 'dropdown' %} invisible-1025{% endif %} gradient transition absolute{% if menu_type != 'dropdown' %} static-1025{% endif %} list-unstyled">
+            <li class="hidden-1025 grey-bg px-30 border-bottom flex gap-15 align-center justify-between{% if theme_st.menu_font == 'heading_font' %} heading-style{% endif %}">
+              <back-menu
+                class="py-10 min-h-55 inline-flex gap-20 align-center back-lv1 fs-big-1 heading-style"
+                role="link"
+              >
+                {% if enable_rtl %}
+                  <svg width="6" height="11" fill="none">
+                    <use href="#icon-next" />
+                  </svg>
+                {% else %}
+                  <svg width="6" height="11" fill="none">
+                    <use href="#icon-back" />
+                  </svg>
+                {% endif %}
+                {% liquid
+                  assign child_link_title = child_link.title
+                  assign clean_title = child_link_title
+                  assign clean_title = clean_title | replace: '[hot]', ''
+                  assign clean_title = clean_title | replace: '[new]', ''
+                  assign clean_title = clean_title | replace: '[sale]', ''
+                  assign clean_title = clean_title | replace: '[popular]', ''
+                  assign clean_title = clean_title | replace: '[coming soon]', ''
+                  assign clean_title = clean_title | strip
+                %}
+                {{ clean_title }}
+              </back-menu>
+              <close-menu class="close-menu lh-1 ms-10">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <use href="#icon-close" />
+                </svg>
+              </close-menu>
+            </li>
+            <ul class="list-unstyled px-30 px-1025-0 gradient">
+              {% for grandchild_link in child_link.links %}
+                <li class="menu-link level-2 border-bottom border-bottom-1025-0">
+                  {% liquid
+                    assign grandchild_link_title = grandchild_link.title
+                    assign clean_title = grandchild_link_title
+                    assign clean_title = clean_title | replace: '[hot]', ''
+                    assign clean_title = clean_title | replace: '[new]', ''
+                    assign clean_title = clean_title | replace: '[sale]', ''
+                    assign clean_title = clean_title | replace: '[popular]', ''
+                    assign clean_title = clean_title | replace: '[coming soon]', ''
+                    assign clean_title = clean_title | strip
+                    
+                    assign label_setting = ''
+                    assign show_label = false
+
+                    if grandchild_link.title contains '[hot]'
+                      assign label_setting = label_setting | append: 'hot'
+                      assign show_label = true
+                    endif
+
+                    if grandchild_link.title contains '[new]'
+                      assign label_setting = label_setting | append: 'new'
+                      assign show_label = true
+                    endif
+
+                    if grandchild_link.title contains '[sale]'
+                      assign label_setting = label_setting | append: 'sale'
+                      assign show_label = true
+                    endif
+
+                    if grandchild_link.title contains '[popular]'
+                      assign label_setting = label_setting | append: 'popular'
+                      assign show_label = true
+                    endif
+
+                    if grandchild_link.title contains '[coming soon]' and only_for_domain == true
+                      assign label_setting = label_setting | append: 'coming_soon'
+                      assign show_label = true
+                    endif
+                    
+                    assign custom_label_text = ''
+                    assign custom_label_found = false
+                    assign label_text_color = ''
+                    assign label_bg_color = ''
+                    
+                    if label_map != blank
+                      assign label_entries = label_map | split: '@@'
+                      for entry in label_entries
+                        if entry != blank
+                          assign parts = entry | split: '##'
+                          if parts.size > 1
+                            assign match_text = parts[0] | strip
+                            if match_text == clean_title
+                              assign label_info = parts[1] | strip
+                              assign info_parts = label_info | split: '|'
+                              if info_parts.size >= 3
+                                assign custom_label_text = info_parts[0]
+                                assign label_text_color = info_parts[1]
+                                assign label_bg_color = info_parts[2]
+                                assign custom_label_found = true
+                                assign show_label = true
+                              endif
+                            endif
+                          endif
+                        endif
+                      endfor
+                    endif
+                  %}
+                  <a
+                    class="menu_item-link no-underline py-10 py-1025-5 min-h-55 min-h-1025-unset inline-flex align-center"
+                    href="{{ grandchild_link.url }}"
+                    aria-label="{{ clean_title }}"
+                  >
+                    <span class="reversed-links transition">{{- clean_title -}}</span>
+                    {% if show_label %}
+                      {% if custom_label_found and label_map != blank %}
+                        {% liquid
+                          assign text_color_value = label_text_color
+                          assign bg_color_value = label_bg_color
+                          
+                          if label_text_color contains 'preset_color'
+                            assign preset_number = label_text_color | replace: 'preset_color', '' | plus: 0
+                            assign setting_name = 'custom_label_color' | append: preset_number
+                            assign text_color_value = section.settings[setting_name]
+                          endif
+
+                          if label_bg_color contains 'preset_color'
+                            assign preset_number = label_bg_color | replace: 'preset_color', '' | plus: 0
+                            assign setting_name = 'custom_label_color' | append: preset_number
+                            assign bg_color_value = section.settings[setting_name]
+                          endif
+                        %}
+                        <span 
+                          class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap"
+                          style="color: {{ text_color_value }}; background-color: {{ bg_color_value }}; --menu-label-bg: {{ bg_color_value }};"
+                        >
+                          {{ custom_label_text }}
+                        </span>
+                        <span class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap uppercase hidden-1025 {{ label_setting }}">
+                          {% if label_setting == 'coming_soon' and only_for_domain == true %}
+                            coming soon
+                          {% else %}
+                            {{- section_st[label_setting] -}}
+                          {% endif %}
+                        </span>
+                      {% else %}
+                        <span class="menu_label rounded-3 text-center heading_weight relative absolute-1025 whitespace-nowrap uppercase {{ label_setting }}">
+                          {% if label_setting == 'coming_soon' and only_for_domain == true %}
+                            coming soon
+                          {% else %}
+                            {{- section_st[label_setting] -}}
+                          {% endif %}
+                        </span>
+                      {% endif %}
+                    {% endif %}
+                  </a>
+                </li>
+                
+                {% comment %} 在特定三级菜单项后添加卡片和按钮 - 同时支持大型菜单和普通菜单 {% endcomment %}
+                {% if has_third_level == true or menu_type == 'dropdown' %}
+                  {% for block in section.blocks %}
+                    {% if block.type == 'menu_card' and block.settings.parent_menu == link.title and block.settings.after_submenu == grandchild_link.title %}
+                      {% assign placed_cards = placed_cards | append: block.settings.parent_menu | append: '_' | append: block.settings.after_submenu | append: ',' %}
+                      <li class="menu-link level-2 menu-card-item border-bottom-1025-0 hidden block-1025{% if menu_type == 'dropdown' %} text-center{% endif %}">
+                        <a href="{{ block.settings.card_link }}" class="menu-card justify-between p-10 rounded-5 my-15{% if menu_type == 'dropdown' %} mx-auto{% endif %}" 
+                           style="--card-width: {% if block.settings.card_width %}{{ block.settings.card_width }}{% else %}320{% endif %}px; --card-height: {% if block.settings.card_height %}{{ block.settings.card_height }}{% else %}80{% endif %}px;">
+                          <div class="menu-card-content">
+                            <div class="menu-card-title heading-style">{{ block.settings.card_title }}</div>
+                            <div class="menu-card-description">{{ block.settings.card_text }}</div>
+                          </div>
+                          <div class="menu-card-image" style="width: {{ block.settings.image_width }}px; height: {{ block.settings.image_height }}px;">
+                            {% if block.settings.card_image != blank %}
+                              <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="{{ block.settings.card_title }}" loading="lazy">
+                            {% endif %}
+                          </div>
+                        </a>
+                      </li>
+                    {% endif %}
+                    
+                    {% if block.type == 'menu_button' and block.settings.parent_menu == link.title and block.settings.after_submenu == grandchild_link.title %}
+                      {% assign placed_buttons = placed_buttons | append: block.settings.parent_menu | append: '_' | append: block.settings.after_submenu | append: ',' %}
+                      <li class="menu-link level-2 menu-button-item border-bottom-1025-0 hidden block-1025{% if menu_type == 'dropdown' %} text-center{% endif %}">
+                        <a href="{{ block.settings.button_link }}" class="menu-button py-10 px-20 rounded-3 text-center my-15{% if menu_type == 'dropdown' %} mx-auto{% endif %}" 
+                           style="background-color: {{ block.settings.button_color }}; color: {{ block.settings.text_color }}; --card-width: {{ block.settings.button_width }}px; --card-height: {% if block.settings.button_height %}{{ block.settings.button_height }}{% else %}40{% endif %}px;">
+                          {{ block.settings.button_text }}
+                        </a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </ul>
+        {% endif %}
+        
+        {% comment %} 在特定二级菜单项后添加卡片和按钮 - 同时支持大型菜单和普通菜单 {% endcomment %}
+        {% if has_third_level == false or menu_type == 'dropdown' %}
+          {% for block in section.blocks %}
+            {% if block.type == 'menu_card' and block.settings.parent_menu == link.title and block.settings.after_submenu == child_link.title %}
+              {% assign placed_cards = placed_cards | append: block.settings.parent_menu | append: '_' | append: block.settings.after_submenu | append: ',' %}
+              <li class="menu-link level-1 menu-card-item hidden block-1025{% if menu_type == 'dropdown' %} text-center{% endif %}">
+                <a href="{{ block.settings.card_link }}" class="menu-card justify-between p-10 rounded-5 my-15{% if menu_type == 'dropdown' %} mx-auto{% endif %}" 
+                   style="--card-width: {% if block.settings.card_width %}{{ block.settings.card_width }}{% else %}320{% endif %}px; --card-height: {% if block.settings.card_height %}{{ block.settings.card_height }}{% else %}80{% endif %}px;">
+                  <div class="menu-card-content">
+                    <div class="menu-card-title heading-style">{{ block.settings.card_title }}</div>
+                    <div class="menu-card-description">{{ block.settings.card_text }}</div>
+                  </div>
+                  <div class="menu-card-image" style="width: {{ block.settings.image_width }}px; height: {{ block.settings.image_height }}px;">
+                    {% if block.settings.card_image != blank %}
+                      <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="{{ block.settings.card_title }}" loading="lazy">
+                    {% endif %}
+                  </div>
+                </a>
+              </li>
+            {% endif %}
+            
+            {% if block.type == 'menu_button' and block.settings.parent_menu == link.title and block.settings.after_submenu == child_link.title %}
+              {% assign placed_buttons = placed_buttons | append: block.settings.parent_menu | append: '_' | append: block.settings.after_submenu | append: ',' %}
+              <li class="menu-link level-1 menu-button-item hidden block-1025{% if menu_type == 'dropdown' %} text-center{% endif %}">
+                <a href="{{ block.settings.button_link }}" class="menu-button py-10 px-20 rounded-3 text-center my-15{% if menu_type == 'dropdown' %} mx-auto{% endif %}" 
+                   style="background-color: {{ block.settings.button_color }}; color: {{ block.settings.text_color }}; --card-width: {{ block.settings.button_width }}px; --card-height: {% if block.settings.button_height %}{{ block.settings.button_height }}{% else %}40{% endif %}px;">
+                  {{ block.settings.button_text }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </li>
+    {% endfor %}
+    
+    {% comment %} 无三级菜单或普通菜单时，在末尾添加卡片和按钮 {% endcomment %}
+    {% if has_third_level == false or menu_type == 'dropdown' %}
+      {% for block in section.blocks %}
+        {% assign card_id = block.settings.parent_menu | append: '_' | append: block.settings.after_submenu | append: ',' %}
+        {% if block.type == 'menu_card' and block.settings.parent_menu == link.title and block.settings.after_submenu == blank %}
+          {% unless placed_cards contains card_id %}
+            <div class="menu-card-wrapper hidden block-1025 mb-15{% if menu_type == 'dropdown' %} text-center w-100{% endif %}">
+              <a href="{{ block.settings.card_link }}" class="menu-card justify-between p-10 rounded-5 my-15{% if menu_type == 'dropdown' %} mx-auto{% endif %}" 
+                 style="--card-width: {% if block.settings.card_width %}{{ block.settings.card_width }}{% else %}320{% endif %}px; --card-height: {% if block.settings.card_height %}{{ block.settings.card_height }}{% else %}80{% endif %}px;">
+                <div class="menu-card-content">
+                  <div class="menu-card-title heading-style">{{ block.settings.card_title }}</div>
+                  <div class="menu-card-description">{{ block.settings.card_text }}</div>
+                </div>
+                <div class="menu-card-image" style="width: {{ block.settings.image_width }}px; height: {{ block.settings.image_height }}px;">
+                  {% if block.settings.card_image != blank %}
+                    <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="{{ block.settings.card_title }}" loading="lazy">
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+          {% endunless %}
+        {% endif %}
+        
+        {% if block.type == 'menu_button' and block.settings.parent_menu == link.title and block.settings.after_submenu == blank %}
+          {% unless placed_cards contains card_id %}
+            <div class="menu-button-wrapper hidden block-1025 mb-15{% if menu_type == 'dropdown' %} text-center w-100{% endif %}">
+              <a href="{{ block.settings.button_link }}" class="menu-button py-10 px-20 rounded-3 text-center my-15{% if menu_type == 'dropdown' %} mx-auto{% endif %}" 
+                 style="background-color: {{ block.settings.button_color }}; color: {{ block.settings.text_color }}; --card-width: {{ block.settings.button_width }}px; --card-height: {% if block.settings.button_height %}{{ block.settings.button_height }}{% else %}40{% endif %}px;">
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </ul>
+
+  {% comment %} 有三级菜单时，在网格外添加卡片和按钮 {% endcomment %}
+  {% if has_third_level == true and menu_type != 'dropdown' %}
+    <div class="menu-cards-buttons-container px-30 mt-20 hidden block-1025">
+      {% for block in section.blocks %}
+        {% assign card_id = block.settings.parent_menu | append: '_' | append: block.settings.after_submenu | append: ',' %}
+        {% if block.type == 'menu_card' and block.settings.parent_menu == link.title and block.settings.after_submenu == blank %}
+          {% unless placed_cards contains card_id %}
+            <div class="menu-card-wrapper hidden block-1025 mb-15">
+              <a href="{{ block.settings.card_link }}" class="menu-card justify-between p-10 rounded-5 my-15" 
+                 style="--card-width: {% if block.settings.card_width %}{{ block.settings.card_width }}{% else %}320{% endif %}px; --card-height: {% if block.settings.card_height %}{{ block.settings.card_height }}{% else %}80{% endif %}px;">
+                <div class="menu-card-content">
+                  <div class="menu-card-title heading-style">{{ block.settings.card_title }}</div>
+                  <div class="menu-card-description">{{ block.settings.card_text }}</div>
+                </div>
+                <div class="menu-card-image" style="width: {{ block.settings.image_width }}px; height: {{ block.settings.image_height }}px;">
+                  {% if block.settings.card_image != blank %}
+                    <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="{{ block.settings.card_title }}" loading="lazy">
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+          {% endunless %}
+        {% endif %}
+        
+        {% if block.type == 'menu_button' and block.settings.parent_menu == link.title and block.settings.after_submenu == blank %}
+          {% unless placed_cards contains card_id %}
+            <div class="menu-button-wrapper hidden block-1025 mb-15">
+              <a href="{{ block.settings.button_link }}" class="menu-button py-10 px-20 rounded-3 text-center my-15" 
+                 style="background-color: {{ block.settings.button_color }}; color: {{ block.settings.text_color }}; --card-width: {{ block.settings.button_width }}px; --card-height: {% if block.settings.button_height %}{{ block.settings.button_height }}{% else %}40{% endif %}px;">
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endif %}

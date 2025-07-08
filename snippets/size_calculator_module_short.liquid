@@ -1,0 +1,203 @@
+{% comment %}<script src="{{ 'calculator.js' | asset_url }}" defer="defer"></script>{% endcomment %}
+
+<script src="{{ product.metafields.meta.size_calc_module | file_url }}" defer="defer"></script>
+
+<div class="w__SizeCalc">
+  <div class="ic-bra-calculator t4s-container">
+    <p class="w__SizeCalcHeading">{{ 'products.product.calc_size_heading'| t }}</p>
+    <div class="ic-bra-calculator__inner w__SizeCalcWrap">
+      <div class="ic-bra-calculator__field">
+        <div class="w__SizeCalcBlock">
+          <select id="band__size" class="ic-bra-converter__field-select">
+            <option value="Your Band Size">{{ 'products.product.calc_band_size'| t }}</option>
+            <option value="24.5">24½</option>
+            <option value="25">25</option>
+            <option value="25.5">25½</option>
+            <option value="26">26</option>
+            <option value="26.5">26½</option>
+            <option value="27">27</option>
+            <option value="27.5">27½</option>
+            <option value="28">28</option>
+            <option value="28.5">28½</option>
+            <option value="29">29</option>
+            <option value="29.5">29½</option>
+            <option value="30">30</option>
+            <option value="30.5">30½</option>
+            <option value="31">31</option>
+            <option value="31.5">31½</option>
+            <option value="32">32</option>
+            <option value="32.5">32½</option>
+            <option value="33">33</option>
+            <option value="33.5">33½</option>
+            <option value="34">34</option>
+            <option value="34.5">34½</option>
+            <option value="35">35</option>
+            <option value="35.5">35½</option>
+            <option value="36">36</option>
+            <option value="36.5">36½</option>
+            <option value="37">37</option>
+            <option value="37.5">37½</option>
+            <option value="38">38</option>
+            <option value="38.5">38½</option>
+            <option value="39">39</option>
+            <option value="39.5">39½</option>
+            <option value="40">40</option>
+            <option value="40.5">40½</option>
+            <option value="41">41</option>
+            <option value="41.5">41½</option>
+            <option value="42">42</option>
+            <option value="42.5">42½</option>
+            <option value="43">43</option>
+            <option value="43.5">43½</option>
+            <option value="44">44</option>
+            <option value="44.5">44½</option>
+            <option value="45">45</option>
+            <option value="45.5">45½</option>
+            <option value="46">46</option>
+            <option value="46.5">46½</option>
+            <option value="47">47</option>
+            <option value="47.5">47½</option>
+            <option value="48">48</option>
+          </select>
+          <span>{{ 'products.product.calc_band_size_desc'| t }}</span>
+        </div>
+      </div>
+      <div class="ic-bra-calculator__field">
+        <div class="w__SizeCalcBlock">
+          <select id="cup__size" class="ic-bra-converter__field-select">
+            <option value="Your Cup Size">{{ 'products.product.calc_cup_size'| t }}</option>
+            <option value="24.5">24½</option>
+            <option value="25">25</option>
+            <option value="25.5">25½</option>
+            <option value="26">26</option>
+            <option value="26.5">26½</option>
+            <option value="27">27</option>
+            <option value="27.5">27½</option>
+            <option value="28">28</option>
+            <option value="28.5">28½</option>
+            <option value="29">29</option>
+            <option value="29.5">29½</option>
+            <option value="30">30</option>
+            <option value="30.5">30½</option>
+            <option value="31">31</option>
+            <option value="31.5">31½</option>
+            <option value="32">32</option>
+            <option value="32.5">32½</option>
+            <option value="33">33</option>
+            <option value="33.5">33½</option>
+            <option value="34">34</option>
+            <option value="34.5">34½</option>
+            <option value="35">35</option>
+            <option value="35.5">35½</option>
+            <option value="36">36</option>
+            <option value="36.5">36½</option>
+            <option value="37">37</option>
+            <option value="37.5">37½</option>
+            <option value="38">38</option>
+            <option value="38.5">38½</option>
+            <option value="39">39</option>
+            <option value="39.5">39½</option>
+            <option value="40">40</option>
+            <option value="40.5">40½</option>
+            <option value="41">41</option>
+            <option value="41.5">41½</option>
+            <option value="42">42</option>
+            <option value="42.5">42½</option>
+            <option value="43">43</option>
+            <option value="43.5">43½</option>
+            <option value="44">44</option>
+            <option value="44.5">44½</option>
+            <option value="45">45</option>
+            <option value="45.5">45½</option>
+            <option value="46">46</option>
+            <option value="46.5">46½</option>
+            <option value="47">47</option>
+            <option value="47.5">47½</option>
+            <option value="48">48</option>
+            <option value="48.5">48½</option>
+            <option value="49">49</option>
+            <option value="49.5">49½</option>
+            <option value="50">50</option>
+            <option value="50.5">50½</option>
+            <option value="51">51</option>
+            <option value="51.5">51½</option>
+            <option value="52">52</option>
+            <option value="52.5">52½</option>
+            <option value="53">53</option>
+            <option value="53.5">53½</option>
+            <option value="54">54</option>
+            <option value="54.5">54½</option>
+            <option value="55">55</option>
+            <option value="55.5">55½</option>
+            <option value="56">56</option>
+            <option value="56.5">56½</option>
+            <option value="57">57</option>
+          </select>
+          <span>{{ 'products.product.calc_cup_size_desc'| t }}</span>
+        </div>
+      </div>
+      <div class="ic-bra-calculator__field w__SizeCalcResultField">
+        <div class="w__SizeCalcResult">
+          <span class="ic-bra-calculator__field-name">{{ 'products.product.calc_recommend_size'| t }}</span>
+          <span id="ic-bra-size-value" class="ic-bra-calculator__field-value"> -- </span>
+        </div>
+        <p class="w__SizeCalcResult1_title">{{ 'products.product.calc_similar_size'| t }} <span id="ic-bra-cup-size-value" class="ic-bra-calculator__field-value w__SizeCalcResult1"> -- </span></p>
+        <p class="w__SizeCalcResult1_title">{{ 'products.product.calc_sister_size'| t }} <span id="ic-sister-size-value" class="ic-bra-calculator__field-value w__SizeCalcResult1"> -- </span></p>
+        
+      </div>
+    </div>
+
+    <div class="db mb__5 mt__5" style="border-top:1px solid var(--border-color)"></div>
+    <p class="w__SizeCalcHeading">{{ 'products.product.calc_size_heading_1'| t }}</p>
+    <div class="ic-bra-calculator__inner w__SizeCalcWrap">
+      <div class="ic-bra-calculator__field">
+        <div class="w__SizeCalcBlock">
+          <select id="bra__cup" class="ic-bra-converter__field-select">
+            <option value="Your Bra Size">{{ 'products.product.calc_bra_size'| t }}</option>
+            <option value="30A">30A</option>
+            <option value="32A">32A</option>
+            <option value="34A">34A</option>
+            <option value="36A">36A</option>
+            <option value="38A">38A</option>
+            <option value="40A">40A</option>
+            <option value="42A">42A</option>
+            <option value="30B">30B</option>
+            <option value="32B">32B</option>
+            <option value="34B">34B</option>
+            <option value="36B">36B</option>
+            <option value="38B">38B</option>
+            <option value="40B">40B</option>
+            <option value="42B">42B</option>
+            <option value="30C">30C</option>
+            <option value="32C">32C</option>
+            <option value="34C">34C</option>
+            <option value="36C">36C</option>
+            <option value="38C">38C</option>
+            <option value="40C">40C</option>
+            <option value="42C">42C</option>
+            <option value="30D">30D</option>
+            <option value="32D">32D</option>
+            <option value="34D">34D</option>
+            <option value="36D">36D</option>
+            <option value="38D">38D</option>
+            <option value="40D">40D</option>
+            <option value="42D">42D</option>
+            <option value="32DD(E)">32DD(E)</option>
+            <option value="34DD(E)">34DD(E)</option>
+            <option value="36DD(E)">36DD(E)</option>
+            <option value="38DD(E)">38DD(E)</option>
+            <option value="40DD(E)">40DD(E)</option>
+            <option value="42DD(E)">42DD(E)</option>
+          </select>
+        </div>
+      </div>
+      <div class="ic-bra-calculator__field w__SizeCalcResultField">
+        <div class="w__SizeCalcResult">
+          <span class="ic-bra-calculator__field-name">{{ 'products.product.calc_recommend_size'| t }}</span>
+          <span id="ic-bra-cup-value" class="ic-bra-calculator__field-value"> -- </span>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>

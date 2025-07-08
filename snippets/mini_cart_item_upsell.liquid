@@ -1,0 +1,72 @@
+{%- if item.product.metafields.meta.cart_item_upsell != blank -%}
+    {% assign pr_disable = false %}
+    {% assign title_upsell = 'general.cart.mini_cart.upsell_title' | t %}
+	<div class="w__CartItemUpsell">
+        
+		<div class="w__CartItemUpsell_items order-2">
+            {% assign cart_item_upsell = item.product.metafields.meta.cart_item_upsell.value %}
+		    {%- for pr_item in cart_item_upsell -%}
+              
+                {% if pr_item.variants.first.inventory_quantity == 0 or pr_item.featured_media == blank %}{% continue %}{% endif %}
+              
+                {% comment %}
+                {% if pr_item.metafields.meta.country_limited == 'include' %}
+                  {% if pr_item.metafields.meta.limit_country_list.value contains localization.country.iso_code %}
+                    {% assign country_disable = false %}
+                  {% else %}
+                    {% assign country_disable = true %}
+                  {% endif %}
+                {% endif %}
+
+                {% if pr_item.metafields.meta.country_limited == 'exclude' %}
+                  {% if pr_item.metafields.meta.limit_country_list.value contains localization.country.iso_code %}
+                    {% assign country_disable = true %}
+                  {% else %}
+                    {% assign country_disable = false %}
+                  {% endif %}
+                {% endif %}
+
+                {% if country_disable == true %}
+                  {% assign country_disable = false %}
+                  {% continue %}
+                {% endif %}
+                {% endcomment %}
+              
+		    	{%- liquid
+                    assign image = pr_item.featured_media | default:settings.placeholder_img
+                    assign pr_disable = false
+				-%}
+                {%- for check_item in cart.items -%}
+                  {% if check_item.product.id == pr_item.id %}
+                    {% assign pr_disable = ture %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+
+                {% if pr_disable == ture %}{% continue %}{% endif %}
+
+                <button-quickview
+                  data-custom-class="quickview"
+                  tabindex="0"
+                  class="w__CartItemUpsell_item col-sm-4 col-lg-4 col-6 product-item__button pointer product-item__button-quickview tooltip relative"
+                  data-url="/products/{{ pr_item.handle }}?section_id=product-quickview&ajax=1"
+                >
+                  {%- if image != blank -%}
+                    <img loading="lazy" class="w__CartItemUpsell_item_img" src="{{ image | image_url: width: 100 }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
+                  {%- endif -%}
+                  <div class="w__CartItemUpsell_item_info">
+                    <div class="w__CartItemUpsell_item_txt">{{ pr_item.title }}</div>
+                    <div class="w__CartItemUpsell_item_price">{{ pr_item.price | money_with_currency }}</div>
+                  </div>
+                  <span class="tooltip-content invisible absolute pointer-none tooltip-top">
+                    {{- 'products.product.actions.quickview.label' | t -}}
+                  </span>
+                  <span class="w__CartItemUpsell_item_icon"><svg width=18 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg></span>
+                </button-quickview>
+		    {%- endfor -%}
+	    </div>
+        {% if pr_disable == false %}
+		<div class="w__CartItemUpsell_title order-1">{{ item.product.metafields.meta.cart_item_upsell_title | default: title_upsell }}</div>
+        {% endif %}
+    </div>
+{%- endif -%} 
